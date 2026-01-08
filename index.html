@@ -165,36 +165,46 @@
 <header>
   <div class="nav">
     <div class="logo">SnaapX</div>
-    <a href="#" class="cta">Scarica l'app</a>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <select id="langSelect" style="padding:6px 10px;border-radius:999px;border:1px solid #d2d2d7;font-size:14px;">
+        <option value="en" selected>EN</option>
+        <option value="it">IT</option>
+        <option value="fr">FR</option>
+        <option value="es">ES</option>
+        <option value="de">DE</option>
+      </select>
+      <a href="#" class="cta" data-i18n="download">Download app</a>
+    </div>
   </div>
 </header>
 
 <div class="hero">
-  <h1>Diagnostica intelligente<br>per la tua moto</h1>
-  <p>SnaapX si collega alla porta OBD della moto, legge i codici errore dalla centralina e li interpreta tramite intelligenza artificiale, direttamente sul tuo smartphone.</p>
+  <h1 data-i18n="hero_title">Intelligent diagnostics<br>for your motorcycle</h1>
+  <p data-i18n="hero_desc">SnaapX connects to your motorcycle’s OBD port, reads ECU error codes and interprets them using artificial intelligence, directly on your smartphone.</p>
   <div class="buttons">
-    <a class="btn primary" href="#">Inizia ora</a>
-    <a class="btn secondary" href="#">Scopri come funziona</a>
+    <a class="btn primary" href="#" data-i18n="start">Get started</a>
+    <a class="btn secondary" href="#" data-i18n="learn">Learn how it works</a>
   </div>
+</div>
 </div>
 
 <section>
   <div class="grid">
     <div class="card">
-      <h3>Connessione OBD</h3>
-      <p>Collega SnaapX alla porta OBD della moto e accedi ai dati diagnostici in tempo reale.</p>
+      <h3 data-i18n="f1_title">OBD Connection</h3>
+      <p data-i18n="f1_desc">Connect SnaapX to your motorcycle’s OBD port and access diagnostic data in real time.</p>
     </div>
     <div class="card">
-      <h3>Bluetooth</h3>
-      <p>Trasmissione wireless sicura e immediata verso l'app mobile iOS e Android.</p>
+      <h3 data-i18n="f2_title">Bluetooth</h3>
+      <p data-i18n="f2_desc">Secure and instant wireless transmission to the mobile app on iOS and Android.</p>
     </div>
     <div class="card">
-      <h3>Analisi AI</h3>
-      <p>I codici DTC vengono interpretati dall'IA per spiegare il problema, le cause possibili e le azioni consigliate.</p>
+      <h3 data-i18n="f3_title">AI Analysis</h3>
+      <p data-i18n="f3_desc">DTC codes are interpreted by AI to explain the issue, possible causes and recommended actions.</p>
     </div>
     <div class="card">
-      <h3>Cancellazione errori</h3>
-      <p>Elimina i codici errore direttamente dalla centralina in modo semplice e controllato.</p>
+      <h3 data-i18n="f4_title">Clear errors</h3>
+      <p data-i18n="f4_desc">Erase error codes directly from the ECU in a simple and controlled way.</p>
     </div>
   </div>
 </section>
@@ -234,5 +244,80 @@
   © 2026 SnaapX. Tutti i diritti riservati.
 </footer>
 
+<script>
+const translations = {
+  en: {
+    download: "Download app",
+    hero_title: "Intelligent diagnostics<br>for your motorcycle",
+    hero_desc: "SnaapX connects to your motorcycle’s OBD port, reads ECU error codes and interprets them using artificial intelligence, directly on your smartphone.",
+    start: "Get started",
+    learn: "Learn how it works",
+    f1_title: "OBD Connection",
+    f1_desc: "Connect SnaapX to your motorcycle’s OBD port and access diagnostic data in real time.",
+    f2_title: "Bluetooth",
+    f2_desc: "Secure and instant wireless transmission to the mobile app on iOS and Android.",
+    f3_title: "AI Analysis",
+    f3_desc: "DTC codes are interpreted by AI to explain the issue, possible causes and recommended actions.",
+    f4_title: "Clear errors",
+    f4_desc: "Erase error codes directly from the ECU in a simple and controlled way."
+  },
+  it: {
+    download: "Scarica l'app",
+    hero_title: "Diagnostica intelligente<br>per la tua moto",
+    hero_desc: "SnaapX si collega alla porta OBD della moto, legge i codici errore e li interpreta tramite intelligenza artificiale sul tuo smartphone.",
+    start: "Inizia ora",
+    learn: "Scopri come funziona",
+    f1_title: "Connessione OBD",
+    f1_desc: "Collega SnaapX alla porta OBD della moto e accedi ai dati diagnostici in tempo reale.",
+    f2_title: "Bluetooth",
+    f2_desc: "Trasmissione wireless sicura e immediata verso l'app mobile.",
+    f3_title: "Analisi AI",
+    f3_desc: "I codici DTC vengono interpretati dall’IA per spiegare problema e soluzioni.",
+    f4_title: "Cancella errori",
+    f4_desc: "Elimina i codici errore direttamente dalla centralina."
+  },
+  fr: {
+    download: "Télécharger l'app",
+    hero_title: "Diagnostic intelligent<br>pour votre moto",
+    hero_desc: "SnaapX se connecte au port OBD de la moto et analyse les codes défaut via l’intelligence artificielle.",
+    start: "Commencer",
+    learn: "Voir comment ça marche",
+    f1_title: "Connexion OBD",
+    f2_title: "Bluetooth",
+    f3_title: "Analyse IA",
+    f4_title: "Effacer erreurs"
+  },
+  es: {
+    download: "Descargar app",
+    hero_title: "Diagnóstico inteligente<br>para tu moto",
+    hero_desc: "SnaapX se conecta al puerto OBD y analiza los códigos de error con inteligencia artificial.",
+    start: "Empezar",
+    learn: "Cómo funciona",
+    f1_title: "Conexión OBD",
+    f2_title: "Bluetooth",
+    f3_title: "Análisis IA",
+    f4_title: "Borrar errores"
+  },
+  de: {
+    download: "App herunterladen",
+    hero_title: "Intelligente Diagnose<br>für dein Motorrad",
+    hero_desc: "SnaapX verbindet sich mit dem OBD-Anschluss und analysiert Fehlercodes per KI.",
+    start: "Jetzt starten",
+    learn: "So funktioniert es",
+    f1_title: "OBD-Verbindung",
+    f2_title: "Bluetooth",
+    f3_title: "KI-Analyse",
+    f4_title: "Fehler löschen"
+  }
+};
+
+document.getElementById('langSelect').addEventListener('change', e => {
+  const lang = e.target.value;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) el.innerHTML = translations[lang][key];
+  });
+});
+</script>
 </body>
 </html>
