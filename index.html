@@ -3,204 +3,213 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SNAAPX</title>
+<title>SNAAPX v0.1 Reference</title>
 
 <style>
 :root{
-  --bg:#ffffff;
-  --text:#0a0a0a;
-  --muted:#6e6e73;
-  --card:#f5f5f7;
-  --line:#e5e5ea;
-  --black:#0b0b0d;
-  --radius:18px;
-  --max:1180px;
+--bg:#ffffff;
+--text:#0a0a0a;
+--muted:#6e6e73;
+--card:#f5f5f7;
+--line:#e5e5ea;
+--black:#0b0b0d;
+--radius:18px;
+--max:1180px;
 }
 
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Helvetica,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Helvetica,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
 .wrap{
-  max-width:var(--max);
-  margin:0 auto;
-  padding:22px 20px 110px;
+max-width:var(--max);
+margin:0 auto;
+padding:22px 20px 110px;
 }
 
 /* TOP BAR */
 .topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-bottom:28px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding-bottom:28px;
 }
-.logo-top{
-  height:64px;
-}
-.right{display:flex;gap:10px}
+.logo-top{height:64px;}
+.right{display:flex;gap:10px;align-items:center}
 select{
-  border-radius:999px;
-  padding:8px 12px;
-  border:1px solid var(--line);
+border-radius:999px;
+padding:8px 12px;
+border:1px solid var(--line);
 }
 .btn{
-  border-radius:999px;
-  padding:10px 16px;
-  border:1px solid var(--black);
-  background:var(--black);
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
+border-radius:999px;
+padding:10px 16px;
+border:1px solid var(--black);
+background:var(--black);
+color:#fff;
+font-weight:700;
+cursor:pointer;
 }
 
 /* HERO */
-.hero{max-width:860px;margin-bottom:40px}
-h1{font-size:56px;line-height:1.05}
-.subtitle{font-size:20px;color:var(--muted)}
+.hero{max-width:860px;margin-bottom:28px}
+h1{font-size:56px;line-height:1.05;margin:0 0 10px}
+.subtitle{font-size:20px;color:var(--muted);margin:0}
+.note{font-size:14px;color:var(--muted);margin:12px 0 0}
 
-/* FEATURES */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  margin:40px 0;
+/* MAIN LAYOUT */
+.main{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:34px;
+align-items:start;
+margin-top:34px;
 }
+@media(max-width:980px){
+.main{grid-template-columns:1fr}
+}
+
+/* CARD GRID (Apple-style) */
 .card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:26px;
+background:var(--card);
+border-radius:var(--radius);
+padding:22px;
+border:1px solid rgba(0,0,0,0);
 }
-.card h3{
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
+.card + .card{margin-top:14px}
+.kicker{
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:10px;
 }
-.card p{color:var(--muted)}
+.card h2{
+font-size:22px;
+margin:0 0 8px;
+}
+.card p{
+color:var(--muted);
+font-size:16px;
+line-height:1.55;
+margin:0 0 14px;
+}
+.row{
+display:flex;flex-wrap:wrap;gap:10px;
+}
+.pill{
+border:1px solid var(--line);
+border-radius:999px;
+padding:8px 12px;
+background:#fff;
+font-weight:700;
+font-size:13px;
+}
+.action{
+display:flex;justify-content:space-between;align-items:center;
+margin-top:10px;
+}
+.linkbtn{
+border:none;
+background:transparent;
+color:var(--black);
+font-weight:800;
+cursor:pointer;
+padding:0;
+}
+.badge{
+font-size:12px;
+letter-spacing:.10em;
+text-transform:uppercase;
+color:var(--muted);
+}
 
-/* LOOKUP */
-.lookup{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:24px;
-  margin:60px 0;   /* SEZIONI PIÙ DISTANZIATE */
-}
-.lookup-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:16px;
-}
-.input{
-  flex:1;
-  min-width:220px;
-  padding:12px 16px;
-  border-radius:999px;
-  border:1px solid var(--line);
-}
-.btn-outline{
-  border-radius:999px;
-  padding:10px 16px;
-  border:1px solid var(--line);
-  background:#fff;
-  font-weight:700;
-}
-
-/* DEMO */
-.demo{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
-  margin:80px 0;   /* SEZIONI PIÙ DISTANZIATE */
-}
-@media(max-width:900px){
-  .demo{grid-template-columns:1fr}
-}
-
-/* PHONE */
+/* PHONE DEMO */
 .phone{
-  width:320px;
-  aspect-ratio:9 / 19.5;
-  background:#000;
-  border-radius:54px;
-  padding:14px;
-  margin:0 auto;
-  box-shadow:0 30px 70px rgba(0,0,0,.25);
+width:320px;
+aspect-ratio:9 / 19.5;
+background:#000;
+border-radius:54px;
+padding:14px;
+margin:0 auto;
+box-shadow:0 30px 70px rgba(0,0,0,.25);
 }
 .screen{
-  width:100%;
-  height:100%;
-  background:#fff;
-  border-radius:40px;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+width:100%;
+height:100%;
+background:#fff;
+border-radius:40px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
 }
 .statusbar{
-  font-size:12px;
-  padding:10px 16px;
-  display:flex;
-  justify-content:space-between;
-  font-weight:700;
+font-size:12px;
+padding:10px 16px;
+display:flex;
+justify-content:space-between;
+font-weight:700;
 }
-
-/* LOGO NELLO SCHERMO */
 .app-logo{
-  text-align:center;
-  padding:12px 0 4px;
+text-align:center;
+padding:12px 0 4px;
 }
 .app-logo img{
-  height:28px;
-  opacity:.9;
+height:28px;
+opacity:.9;
 }
-
 .app{padding:16px;flex:1}
 .app-title{
-  font-size:12px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:10px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:10px;
 }
 .phone-card{
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:14px;
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
 }
 .item{
-  background:var(--card);
-  border-radius:14px;
-  padding:12px;
-  margin-bottom:10px;
+background:var(--card);
+border-radius:14px;
+padding:12px;
+margin-bottom:10px;
 }
 .phonebtn{
-  width:100%;
-  margin-top:10px;
-  padding:12px;
-  border-radius:14px;
-  border:none;
-  background:var(--black);
-  color:#fff;
-  font-weight:700;
+width:100%;
+margin-top:10px;
+padding:12px;
+border-radius:14px;
+border:none;
+background:var(--black);
+color:#fff;
+font-weight:700;
+cursor:pointer;
 }
 
-/* BOTTOM SECTIONS */
+/* FOOTER */
 .section{
-  margin:120px 0;   /* SEZIONI PIÙ LONTANE TRA LORO */
+margin:90px 0 0;
 }
-.section h2{
-  margin-top:48px;
+.section h3{
+font-size:13px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(--muted);
+margin:0 0 10px;
 }
 .section p{
-  color:var(--muted);
-  font-size:18px;
-  max-width:820px;
-  line-height:1.6;
-  margin:8px 0 22px;   /* TESTO PIÙ VICINO */
+color:var(--muted);
+font-size:16px;
+line-height:1.6;
+max-width:900px;
+margin:0 0 10px;
 }
 </style>
 </head>
@@ -208,154 +217,250 @@ h1{font-size:56px;line-height:1.05}
 <body>
 <div class="wrap">
 
-  <div class="topbar">
-    <img src="img/logo.png" class="logo-top" alt="SNAAPX">
-    <div class="right">
-      <select id="lang">
-        <option value="en">EN</option>
-        <option value="it">IT</option>
-      </select>
-      <button class="btn" data-i18n="download"></button>
-    </div>
-  </div>
+<div class="topbar">
+<img src="img/logo.png" class="logo-top" alt="SNAAPX">
+<div class="right">
+<select id="lang">
+<option value="en">EN</option>
+<option value="it">IT</option>
+</select>
+<button class="btn" data-i18n="download"></button>
+</div>
+</div>
 
-  <section class="hero">
-    <h1 data-i18n="hero_title"></h1>
-    <p class="subtitle" data-i18n="hero_sub"></p>
-  </section>
+<section class="hero">
+<h1 data-i18n="hero_title"></h1>
+<p class="subtitle" data-i18n="hero_sub"></p>
+<p class="note" data-i18n="hero_note"></p>
+</section>
 
-  <section class="grid">
-    <div class="card"><h3 data-i18n="f1t"></h3><p data-i18n="f1"></p></div>
-    <div class="card"><h3 data-i18n="f2t"></h3><p data-i18n="f2"></p></div>
-    <div class="card"><h3 data-i18n="f3t"></h3><p data-i18n="f3"></p></div>
-    <div class="card"><h3 data-i18n="f4t"></h3><p data-i18n="f4"></p></div>
-  </section>
+<section class="main">
 
-  <section class="lookup">
-    <h2 data-i18n="lookup_title"></h2>
-    <p data-i18n="lookup_desc"></p>
-    <div class="lookup-row">
-      <input class="input" placeholder="e.g. P0130">
-      <button class="btn" data-i18n="analyze"></button>
-      <button class="btn-outline" data-i18n="demo"></button>
-    </div>
-  </section>
+<!-- LEFT: CARD-BASED HOME (no tab bar) -->
+<div>
 
-  <section class="demo">
-    <div>
-      <h2 data-i18n="demo_title"></h2>
-      <p data-i18n="demo_p1"></p>
-      <p data-i18n="demo_p2"></p>
-    </div>
+<!-- BIKE (v0.1 active) -->
+<div class="card">
+<div class="kicker" data-i18n="bike_kicker"></div>
+<h2 data-i18n="bike_title"></h2>
+<p data-i18n="bike_text"></p>
+<div class="row">
+<span class="pill" data-i18n="pill_push"></span>
+<span class="pill" data-i18n="pill_history"></span>
+<span class="pill" data-i18n="pill_reset"></span>
+<span class="pill" data-i18n="pill_ai"></span>
+</div>
+<div class="action">
+<button class="linkbtn" data-i18n="bike_cta"></button>
+<span class="badge" data-i18n="mode_badge"></span>
+</div>
+</div>
 
-    <div class="phone">
-      <div class="screen">
-        <div class="statusbar">
-          <span>SNAAPX</span><span>9:41</span>
-        </div>
+<!-- DISCOVER (present but quiet) -->
+<div class="card">
+<div class="kicker" data-i18n="discover_kicker"></div>
+<h2 data-i18n="discover_title"></h2>
+<p data-i18n="discover_text"></p>
+<div class="row">
+<span class="pill" data-i18n="pill_tech"></span>
+<span class="pill" data-i18n="pill_econ"></span>
+<span class="pill" data-i18n="pill_story"></span>
+</div>
+<div class="action">
+<button class="linkbtn" data-i18n="discover_cta"></button>
+<span class="badge" data-i18n="ref_only"></span>
+</div>
+</div>
 
-        <div class="app-logo">
-          <img src="img/logo.png" alt="SNAAPX">
-        </div>
+<!-- PARTS (present but quiet) -->
+<div class="card">
+<div class="kicker" data-i18n="parts_kicker"></div>
+<h2 data-i18n="parts_title"></h2>
+<p data-i18n="parts_text"></p>
+<div class="row">
+<span class="pill" data-i18n="pill_exhaust"></span>
+<span class="pill" data-i18n="pill_brakes"></span>
+<span class="pill" data-i18n="pill_susp"></span>
+<span class="pill" data-i18n="pill_elec"></span>
+</div>
+<div class="action">
+<button class="linkbtn" data-i18n="parts_cta"></button>
+<span class="badge" data-i18n="ref_only"></span>
+</div>
+</div>
 
-        <div class="app">
-          <div class="app-title" data-i18n="detected"></div>
-          <div class="phone-card">
-            <b data-i18n="active"></b>
-            <div class="item"><b>P0130</b> Oxygen sensor abnormal signal</div>
-            <div class="item"><b>P0560</b> System voltage unstable</div>
-            <button class="phonebtn" data-i18n="clear"></button>
-            <button class="phonebtn" data-i18n="ai"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- PROFILE (rarely) -->
+<div class="card">
+<div class="kicker" data-i18n="profile_kicker"></div>
+<h2 data-i18n="profile_title"></h2>
+<p data-i18n="profile_text"></p>
+<div class="row">
+<span class="pill" data-i18n="pill_device"></span>
+<span class="pill" data-i18n="pill_firmware"></span>
+<span class="pill" data-i18n="pill_privacy"></span>
+</div>
+<div class="action">
+<button class="linkbtn" data-i18n="profile_cta"></button>
+<span class="badge" data-i18n="ref_only"></span>
+</div>
+</div>
 
-  <!-- BOTTOM CONTENT -->
-  <section class="section">
-    <h2 data-i18n="what_title"></h2>
-    <p data-i18n="what_text"></p>
+</div>
 
-    <h2 data-i18n="why_title"></h2>
-    <p data-i18n="why_text"></p>
+<!-- RIGHT: PHONE DEMO (visual only, same style) -->
+<div>
+<div class="phone">
+<div class="screen">
+<div class="statusbar">
+<span>SNAAPX</span><span>9:41</span>
+</div>
 
-    <h2 data-i18n="app_title"></h2>
-    <p data-i18n="app_text"></p>
+<div class="app-logo">
+<img src="img/logo.png" alt="SNAAPX">
+</div>
 
-    <h2 data-i18n="one_title"></h2>
-    <p data-i18n="one_text"></p>
-  </section>
+<div class="app">
+<div class="app-title" data-i18n="phone_title"></div>
+<div class="phone-card">
+<b data-i18n="phone_mode"></b>
+<div class="item"><b data-i18n="phone_event"></b><br>P0130 · Oxygen sensor abnormal signal</div>
+<div class="item"><b data-i18n="phone_history"></b><br>Issue returned · 2 days ago</div>
+<button class="phonebtn" data-i18n="phone_details"></button>
+<button class="phonebtn" data-i18n="phone_reset"></button>
+<button class="phonebtn" data-i18n="phone_ai"></button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3 data-i18n="dev_title"></h3>
+<p data-i18n="dev_text1"></p>
+<p data-i18n="dev_text2"></p>
+</div>
+</div>
+
+</section>
 
 </div>
 
 <script>
 const t = {
-  en:{
-    download:"Download app",
-    hero_title:"Clear diagnostics for modern motorcycles",
-    hero_sub:"On-board and remote diagnostics, in real time.<br>Shared between the motorcycle, the rider, and the workshop.",
-    f1t:"Real time",f1:"Diagnostics are available when they matter, not after.",
-    f2t:"Readable",f2:"Complex ECU data translated into clear information.",
-    f3t:"Shared",f3:"Same diagnostic view for rider and workshop.",
-    f4t:"Error clearing",f4:"Clear ECU error codes in a controlled and permitted way.",
-    lookup_title:"Manual error code lookup",
-    lookup_desc:"Enter a DTC code to instantly get a clear explanation.",
-    analyze:"Analyze code",
-    demo:"Load demo",
-    demo_title:"A clear app. As it should be.",
-    demo_p1:"A clean and readable interface designed to be used even with gloves.",
-    demo_p2:"Errors are shown clearly and can be cleared directly from the app.",
-    detected:"Detected error codes",
-    active:"Active DTCs",
-    clear:"Clear DTC",
-    ai:"AI explanation",
+en:{
+download:"Download app",
+hero_title:"SnaapX v0.1 reference",
+hero_sub:"Event-based diagnostics. No scans.<br>Only real DTC events — when they happen.",
+hero_note:"Internal/dev reference page (not marketing). Visual style locked (logo/colors/phone).",
 
-    what_title:"What SNAAPX does",
-    what_text:"SNAAPX monitors the motorcycle continuously, on board and remotely. It reads ECU diagnostic data and turns it into clear, usable information.",
-    why_title:"Why it matters",
-    why_text:"Modern motorcycles are complex systems. Data exists, but it is often locked, fragmented, or difficult to interpret when it matters.<br><br>SNAAPX makes diagnostics clear and actionable, at the right time.",
-    app_title:"The app",
-    app_text:"The SNAAPX app is free. It allows riders and workshops to view diagnostics, clear permitted errors, receive alerts and access history.<br><br>Simple to use. No technical knowledge required.",
-    one_title:"One connection",
-    one_text:"SNAAPX creates a direct connection between the motorcycle, the rider, and the workshop.<br><br>Shared diagnostics. Faster decisions. Better outcomes."
-  },
+bike_kicker:"Bike",
+bike_title:"When something happens",
+bike_text:"v0.1 is built around push-only DTC events, history, AI probable causes, and reset ALL codes.",
+pill_push:"Push-only DTC",
+pill_history:"History",
+pill_reset:"Reset ALL",
+pill_ai:"AI probable cause",
+bike_cta:"Open event inbox (concept)",
+mode_badge:"RACING MODE",
 
-  it:{
-    download:"Scarica l’app",
-    hero_title:"Diagnostica chiara per moto moderne",
-    hero_sub:"Diagnostica a bordo e remota, in tempo reale.<br>Condivisa tra moto, pilota e officina.",
-    f1t:"Tempo reale",f1:"La diagnostica è disponibile quando serve davvero.",
-    f2t:"Leggibile",f2:"Dati ECU complessi tradotti in informazioni chiare.",
-    f3t:"Condivisa",f3:"Stessa diagnostica per pilota e officina.",
-    f4t:"Cancellazione errori",f4:"Cancella errori ECU in modo controllato.",
-    lookup_title:"Ricerca manuale codice errore",
-    lookup_desc:"Inserisci un codice DTC per ottenere subito una spiegazione.",
-    analyze:"Analizza codice",
-    demo:"Carica demo",
-    demo_title:"Un'app chiara. Come dovrebbe essere.",
-    demo_p1:"Interfaccia pulita e leggibile anche con i guanti.",
-    demo_p2:"Gli errori sono spiegati e cancellabili quando consentito.",
-    detected:"Codici errore rilevati",
-    active:"DTC attivi",
-    clear:"Cancella DTC",
-    ai:"Spiegazione AI",
+discover_kicker:"Discover",
+discover_title:"When you’re curious",
+discover_text:"A calm knowledge layer about your bike (technical + economic + story). Built as cards, not features.",
+pill_tech:"Tech curiosities",
+pill_econ:"Economic curiosities",
+pill_story:"Model & brand story",
+discover_cta:"Explore (concept)",
+ref_only:"REFERENCE ONLY",
 
-    what_title:"Cosa fa SNAAPX",
-    what_text:"SNAAPX monitora continuamente la moto, a bordo e da remoto. Legge i dati diagnostici della ECU e li trasforma in informazioni chiare e utilizzabili.",
-    why_title:"Perché è importante",
-    why_text:"Le moto moderne sono sistemi complessi. I dati esistono, ma spesso sono bloccati, frammentati o difficili da interpretare quando servono davvero.<br><br>SNAAPX rende la diagnostica chiara e azionabile, al momento giusto.",
-    app_title:"L’app",
-    app_text:"L’app SNAAPX è gratuita. Permette a piloti e officine di visualizzare la diagnostica, cancellare gli errori consentiti, ricevere avvisi e accedere allo storico.<br><br>Semplice da usare. Nessuna competenza tecnica richiesta.",
-    one_title:"Una sola connessione",
-    one_text:"SNAAPX crea un collegamento diretto tra moto, pilota e officina.<br><br>Diagnostica condivisa. Decisioni più rapide. Risultati migliori."
-  }
+parts_kicker:"Parts",
+parts_title:"When you’re thinking what to do",
+parts_text:"Bike-specific parts & accessories search. Useful discovery first. Monetization optional later.",
+pill_exhaust:"Exhaust",
+pill_brakes:"Brakes",
+pill_susp:"Suspension",
+pill_elec:"Electronics",
+parts_cta:"Browse categories (concept)",
+
+profile_kicker:"Profile",
+profile_title:"Rarely used",
+profile_text:"Bike profile, device, firmware, operating mode, privacy. Minimal, technical, neutral.",
+pill_device:"Device",
+pill_firmware:"Firmware",
+pill_privacy:"Privacy",
+profile_cta:"Settings (concept)",
+
+phone_title:"Event inbox (mock)",
+phone_mode:"RACING MODE",
+phone_event:"Issue detected",
+phone_history:"History",
+phone_details:"View details",
+phone_reset:"Reset ALL codes",
+phone_ai:"AI probable cause",
+
+dev_title:"v0.1 scope reminder",
+dev_text1:"The app does not scan. The device pushes DTC events only when a real fault occurs.",
+dev_text2:"Discover/Parts/Profile are shown here only to align the long-term architecture. v0.1 focuses on Bike (events + history + AI + reset)."
+},
+
+it:{
+download:"Scarica l’app",
+hero_title:"SnaapX v0.1 reference",
+hero_sub:"Diagnostica basata su eventi. Niente scan.<br>Solo DTC reali — quando accadono.",
+hero_note:"Pagina reference interna/dev (non marketing). Stile visivo bloccato (logo/colori/telefono).",
+
+bike_kicker:"Bike",
+bike_title:"Quando succede qualcosa",
+bike_text:"v0.1 ruota attorno a eventi DTC push-only, storico, AI causa probabile e reset TUTTI i codici.",
+pill_push:"DTC push-only",
+pill_history:"Storico",
+pill_reset:"Reset ALL",
+pill_ai:"AI causa probabile",
+bike_cta:"Apri inbox eventi (concetto)",
+mode_badge:"RACING MODE",
+
+discover_kicker:"Discover",
+discover_title:"Quando sei curioso",
+discover_text:"Strato di conoscenza calmo sulla tua moto (tecnico + economico + storia). Card, non funzioni.",
+pill_tech:"Curiosità tecniche",
+pill_econ:"Curiosità economiche",
+pill_story:"Storia modello/brand",
+discover_cta:"Esplora (concetto)",
+ref_only:"SOLO REFERENCE",
+
+parts_kicker:"Parts",
+parts_title:"Quando pensi a cosa fare",
+parts_text:"Ricerca accessori e parti specifiche per la tua moto. Prima utilità, poi monetizzazione opzionale.",
+pill_exhaust:"Scarico",
+pill_brakes:"Freni",
+pill_susp:"Sospensioni",
+pill_elec:"Elettronica",
+parts_cta:"Sfoglia categorie (concetto)",
+
+profile_kicker:"Profile",
+profile_title:"Raramente",
+profile_text:"Profilo moto, device, firmware, modalità operativa, privacy. Minimo, tecnico, neutro.",
+pill_device:"Device",
+pill_firmware:"Firmware",
+pill_privacy:"Privacy",
+profile_cta:"Impostazioni (concetto)",
+
+phone_title:"Inbox eventi (mock)",
+phone_mode:"RACING MODE",
+phone_event:"Guasto rilevato",
+phone_history:"Storico",
+phone_details:"Apri dettaglio",
+phone_reset:"Reset TUTTI i codici",
+phone_ai:"AI causa probabile",
+
+dev_title:"Promemoria scope v0.1",
+dev_text1:"L’app non esegue scan. Il device invia eventi DTC solo quando avviene un guasto reale.",
+dev_text2:"Discover/Parts/Profile sono mostrati qui solo per allineare l’architettura futura. v0.1 è Bike (eventi + storico + AI + reset)."
+}
 };
 
 function setLang(l){
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    el.innerHTML=t[l][el.dataset.i18n];
-  });
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+el.innerHTML=t[l][el.dataset.i18n];
+});
 }
 document.getElementById("lang").onchange=e=>setLang(e.target.value);
 setLang("en");
