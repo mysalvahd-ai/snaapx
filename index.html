@@ -16,7 +16,6 @@
 --radius:18px;
 --max:1180px;
 }
-
 *{box-sizing:border-box}
 body{
 margin:0;
@@ -24,7 +23,6 @@ font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Helv
 background:var(--bg);
 color:var(--text);
 }
-
 .wrap{
 max-width:var(--max);
 margin:0 auto;
@@ -128,6 +126,14 @@ text-transform:uppercase;
 color:var(--muted);
 }
 
+/* Reuse from phone demo */
+.item{
+background:var(--card);
+border-radius:14px;
+padding:12px;
+margin-bottom:10px;
+}
+
 /* PHONE DEMO */
 .phone{
 width:320px;
@@ -174,12 +180,6 @@ margin-bottom:10px;
 border:1px solid var(--line);
 border-radius:16px;
 padding:14px;
-}
-.item{
-background:var(--card);
-border-radius:14px;
-padding:12px;
-margin-bottom:10px;
 }
 .phonebtn{
 width:100%;
@@ -253,6 +253,39 @@ margin:0 0 10px;
 <div class="action">
 <button class="linkbtn" data-i18n="bike_cta"></button>
 <span class="badge" data-i18n="mode_badge"></span>
+</div>
+</div>
+
+<!-- ONBOARDING (required vs optional) -->
+<div class="card">
+<div class="kicker" data-i18n="onb_kicker"></div>
+<h2 data-i18n="onb_title"></h2>
+<p data-i18n="onb_text"></p>
+
+<div class="row">
+<span class="pill" data-i18n="onb_req"></span>
+<span class="pill" data-i18n="onb_opt"></span>
+<span class="pill" data-i18n="onb_account"></span>
+</div>
+
+<div style="margin-top:14px">
+<div class="item">
+<b data-i18n="req_title"></b><br>
+<span data-i18n="req_list"></span>
+</div>
+<div class="item">
+<b data-i18n="opt_title"></b><br>
+<span data-i18n="opt_list"></span>
+</div>
+<div class="item">
+<b data-i18n="acc_title"></b><br>
+<span data-i18n="acc_list"></span>
+</div>
+</div>
+
+<div class="action">
+<button class="linkbtn" data-i18n="onb_cta"></button>
+<span class="badge" data-i18n="v01_locked"></span>
 </div>
 </div>
 
@@ -362,6 +395,25 @@ pill_ai:"AI probable cause",
 bike_cta:"Open event inbox (concept)",
 mode_badge:"RACING MODE",
 
+onb_kicker:"Onboarding",
+onb_title:"What we ask (and why)",
+onb_text:"v0.1 requires only the bike identity to keep the experience calm and accurate. Optional inputs improve context but never unlock modes.",
+onb_req:"Required",
+onb_opt:"Optional",
+onb_account:"Account (light)",
+
+req_title:"Required (v0.1)",
+req_list:"Country · Brand · Model · Year",
+
+opt_title:"Optional (recommended)",
+opt_list:"Mileage range · Usage (Track/Street/Mixed) · Exhaust (Stock/Aftermarket/Unknown) · Air filter (Stock/High-flow/Unknown)",
+
+acc_title:"Account (optional, light)",
+acc_list:"Email + OTP. Guest allowed. Account enables cloud history / support later.",
+
+onb_cta:"View onboarding flow (concept)",
+v01_locked:"V0.1 LOCKED",
+
 discover_kicker:"Discover",
 discover_title:"When you’re curious",
 discover_text:"A calm knowledge layer about your bike (technical + economic + story). Built as cards, not features.",
@@ -416,6 +468,25 @@ pill_reset:"Reset ALL",
 pill_ai:"AI causa probabile",
 bike_cta:"Apri inbox eventi (concetto)",
 mode_badge:"RACING MODE",
+
+onb_kicker:"Onboarding",
+onb_title:"Cosa chiediamo (e perché)",
+onb_text:"v0.1 richiede solo l’identità della moto per mantenere l’esperienza calma e precisa. I dati facoltativi aggiungono contesto ma non sbloccano modalità.",
+onb_req:"Obbligatori",
+onb_opt:"Facoltativi",
+onb_account:"Account (light)",
+
+req_title:"Obbligatori (v0.1)",
+req_list:"Nazione · Marca · Modello · Anno",
+
+opt_title:"Facoltativi (consigliati)",
+opt_list:"Km (range) · Uso (Track/Street/Mixed) · Scarico (Stock/Aftermarket/Unknown) · Filtro aria (Stock/High-flow/Unknown)",
+
+acc_title:"Account (opzionale, light)",
+acc_list:"Email + OTP. Guest consentito. L’account abilita storico cloud / supporto in futuro.",
+
+onb_cta:"Vedi flow onboarding (concetto)",
+v01_locked:"V0.1 BLOCCATA",
 
 discover_kicker:"Discover",
 discover_title:"Quando sei curioso",
