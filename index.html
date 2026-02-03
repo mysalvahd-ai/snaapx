@@ -127,80 +127,102 @@ line-height:1.55;
 .kv{margin:6px 0 0}
 .kv div{margin:4px 0}
 
-/* PHONE (responsive, controllato su PC e mobile) */
-.phone{
-/* ↓ cambia questi 2 per “più piccolo / più grande” */
---phone-max: 360px; /* massimo su desktop */
---phone-min: 260px; /* minimo su schermi stretti */
+/* ===== PHONE MOCKUP (APPLE-LIKE) ===== */
 
-width: clamp(var(--phone-min), 28vw, var(--phone-max));
+/* Wrapper opzionale: se il tuo layout è a 2 colonne, questo aiuta l’allineamento */
+.phone-wrap{
+display:flex;
+justify-content:flex-start; /* allinea a sinistra come il testo */
+}
+
+/* PHONE */
+.phone {
+position: relative;
+
+/* Desktop: -50% (rispetto al phone grande) */
+width: 260px; /* <-- desktop più piccolo */
 aspect-ratio: 9 / 19.5;
-background:#000;
-border-radius: 54px;
-padding: 14px;
-margin: 0 auto;
-box-shadow: 0 30px 70px rgba(0,0,0,.25);
+
+background: #000;
+border-radius: 48px;
+padding: 12px;
+margin: 0; /* niente auto-centering: segue il layout */
+box-shadow: 0 25px 60px rgba(0,0,0,.22);
 }
 
-@media (max-width: 720px){
+/* Mobile: un po’ più grande ma NON gigante */
+@media (max-width: 768px) {
 .phone{
-/* su mobile: grande ma non “gigante” */
-width: min(86vw, 360px);
+width: 310px; /* mobile credibile */
+margin: 0 auto; /* su mobile meglio centrato */
 }
 }
 
-.screen{
-width:100%;
-height:100%;
-background:#fff;
-border-radius: 40px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
-
-/* top bar finta */
-.statusbar{
-font-size:12px;
-padding: 10px 16px;
-display:flex;
-justify-content:space-between;
-font-weight:700;
-}
-
-/* logo dentro schermo */
-.app-logo{
-text-align:center;
-padding: 10px 0 6px;
-}
-.app-logo img{
-height: 26px;
-opacity: .9;
-}
-
-/* area contenuto (l’immagine Snap) */
-.app{
-flex: 1;
-display:flex;
-align-items:center;
-justify-content:center;
-
-/* controlla quanto “respiro” sopra/sotto ha l’immagine */
-padding: 12px 16px 18px;
-}
-
-/* immagine Snap: grande dentro lo schermo, senza deformare */
-.snap-img{
+.screen {
 width: 100%;
 height: 100%;
+background: #fff;
+border-radius: 38px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+
+/* status bar finta */
+.statusbar {
+font-size: 12px;
+padding: 10px 14px;
+display: flex;
+justify-content: space-between;
+font-weight: 650;
+color:#000;
+}
+
+/* area contenuto: SNAP più in alto */
+.app {
+flex: 1;
+display: flex;
+
+/* qui controlli la posizione: più in alto */
+align-items: flex-start;
+justify-content: center;
+
+/* distanza dall’alto (tuning fine) */
+padding: 54px 14px 18px;
+}
+
+/* ===== SNAP IMAGE (più grande + ombra realistica) ===== */
+.snap-img{
+width: 92%;
 max-width: none;
 
-/* ↑ se vuoi PIÙ grande dentro lo schermo, aumenta 92vh -> 95% */
-max-height: 92%;
+/* aumenta fisicamente la dimensione senza dipendere dal file */
+transform: scale(1.25); /* <-- SNAP più grande */
+transform-origin: center top;
 
-object-fit: contain;
+height: auto;
 display:block;
-margin: 0 auto;
+
+/* ombra “realistica” da prodotto su bianco */
+filter:
+drop-shadow(0 18px 22px rgba(0,0,0,.18))
+drop-shadow(0 2px 2px rgba(0,0,0,.10));
+}
+
+/* su desktop (telefono più piccolo) alza leggermente SNAP e riduci scale */
+@media (min-width: 1024px){
+.app{
+padding-top: 46px;
+}
+.snap-img{
+transform: scale(1.18);
+}
+}
+
+/* su schermi molto piccoli evita che esploda */
+@media (max-width: 360px){
+.phone{ width: 290px; }
+.snap-img{ transform: scale(1.15); }
 }
 
 /* FOOTER */
@@ -1140,6 +1162,7 @@ setLang("en");
 
 </body>
 </html>
+
 
 
 
