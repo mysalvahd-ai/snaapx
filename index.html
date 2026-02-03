@@ -1165,11 +1165,24 @@ if(langSel){
 langSel.addEventListener("change", e => setLang(e.target.value));
 }
 
-setLang("en");
+// Default language from browser (fallback to EN)
+const userLang = (navigator.language || navigator.userLanguage || "en")
+.toLowerCase()
+.slice(0, 2);
+
+const defaultLang = t[userLang] ? userLang : "en";
+
+// Set dropdown to default language
+if (langSel) {
+langSel.value = defaultLang;
+}
+
+setLang(defaultLang);
 </script>
 
 </body>
 </html>
+
 
 
 
