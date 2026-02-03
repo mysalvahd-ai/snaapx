@@ -193,7 +193,26 @@ display: none !important;
 .main {
 grid-template-columns: 1fr !important;
 }
+/* === READABILITY TUNING === */
 
+/* 1) Base type */
+body{
+font-size:17px;
+-webkit-font-smoothing:antialiased;
+text-rendering:optimizeLegibility;
+}
+
+/* 2) Better line length & spacing */
+.hero{max-width:920px}
+.card p,
+.section p{
+font-size:17px;
+line-height:1.65;
+}
+
+/* 3) Slightly more breathing room */
+.main{gap:38px}
+.card{padding:24px}
 </style>
 </head>
 <body>
@@ -1115,6 +1134,7 @@ setLang("en");
 
 </body>
 </html>
+
 
 
 
