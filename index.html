@@ -127,96 +127,7 @@ line-height:1.55;
 .kv{margin:6px 0 0}
 .kv div{margin:4px 0}
 
-/* ===== PHONE MOCKUP (APPLE-LIKE) ===== */
 
-/* Wrapper opzionale: se il tuo layout è a 2 colonne, questo aiuta l’allineamento */
-.phone-wrap{
-display:flex;
-justify-content:flex-start; /* allinea a sinistra come il testo */
-}
-
-/* =========================
-PHONE MOCKUP (FINAL)
-========================= */
-
-.phone-wrapper{
-display:flex;
-justify-content:center;
-align-items:flex-start;
-width:100%;
-}
-
-/* Riduzione telefono sul sito */
-.phone{
-position:relative;
-width:340px; /* desktop size */
-aspect-ratio: 9 / 19.5; /* iPhone real */
-border-radius:44px;
-background:#000;
-padding:10px;
-box-shadow:
-0 40px 60px rgba(0,0,0,.25),
-0 10px 20px rgba(0,0,0,.18);
-}
-
-/* Schermo */
-.screen{
-position:relative;
-width:100%;
-height:100%;
-background:#fff;
-border-radius:34px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
-
-/* Status bar */
-.statusbar{
-height:44px;
-padding:0 16px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:13px;
-font-weight:600;
-color:#000;
-}
-
-/* App area */
-.app{
-flex:1;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-padding-top:64px; /* SNAP più in alto */
-}
-
-/* Contenitore immagine */
-.device-wrap{
-width:100%;
-display:flex;
-justify-content:center;
-}
-
-/* SNAP device */
-.snap-img{
-width:72%; /* più grande */
-max-width:260px;
-height:auto;
-object-fit:contain;
-
-filter:
-drop-shadow(0 20px 26px rgba(0,0,0,.22))
-drop-shadow(0 4px 4px rgba(0,0,0,.12));
-}
-
-/* MOBILE */
-@media (max-width: 768px){
-.phone{
-width:78vw; /* phone realistico su mobile */
-max-width:360px;
-}
 
 .snap-img{
 width:78%;
@@ -1160,6 +1071,7 @@ setLang("en");
 
 </body>
 </html>
+
 
 
 
