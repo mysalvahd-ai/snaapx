@@ -1229,11 +1229,22 @@ if(langSel){
 langSel.addEventListener("change", e => setLang(e.target.value));
 }
 
-setLang("en");
+const userLang = (navigator.language || navigator.userLanguage || "en")
+.toLowerCase()
+.slice(0, 2);
+
+const defaultLang = t[userLang] ? userLang : "en";
+
+if (langSel) {
+langSel.value = defaultLang;
+}
+
+setLang(defaultLang);
 </script>
 
 </body>
 </html>
+
 
 
 
