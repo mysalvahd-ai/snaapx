@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SNAAPX v0.1 Reference</title>
+<title>SNAP – Plug’n Ride | SNAAPX</title>
 
 <style>
 :root{
@@ -23,25 +23,17 @@ font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",Helv
 background:var(--bg);
 color:var(--text);
 }
-.wrap{
-max-width:var(--max);
-margin:0 auto;
-padding:22px 20px 110px;
-}
+.wrap{max-width:var(--max);margin:0 auto;padding:22px 20px 110px}
 
 /* TOP BAR */
-.topbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding-bottom:28px;
-}
-.logo-top{height:64px;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding-bottom:28px}
+.logo-top{height:64px}
 .right{display:flex;gap:10px;align-items:center}
 select{
 border-radius:999px;
 padding:8px 12px;
 border:1px solid var(--line);
+background:#fff;
 }
 .btn{
 border-radius:999px;
@@ -51,6 +43,9 @@ background:var(--black);
 color:#fff;
 font-weight:700;
 cursor:pointer;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
 }
 
 /* HERO */
@@ -59,7 +54,7 @@ h1{font-size:56px;line-height:1.05;margin:0 0 10px}
 .subtitle{font-size:20px;color:var(--muted);margin:0}
 .note{font-size:14px;color:var(--muted);margin:12px 0 0}
 
-/* MAIN LAYOUT */
+/* MAIN */
 .main{
 display:grid;
 grid-template-columns:1.1fr .9fr;
@@ -67,11 +62,9 @@ gap:34px;
 align-items:start;
 margin-top:34px;
 }
-@media(max-width:980px){
-.main{grid-template-columns:1fr}
-}
+@media(max-width:980px){.main{grid-template-columns:1fr}}
 
-/* CARD GRID (Apple-style) */
+/* CARDS */
 .card{
 background:var(--card);
 border-radius:var(--radius);
@@ -86,19 +79,12 @@ text-transform:uppercase;
 color:var(--muted);
 margin-bottom:10px;
 }
-.card h2{
-font-size:22px;
-margin:0 0 8px;
-}
-.card p{
-color:var(--muted);
-font-size:16px;
-line-height:1.55;
-margin:0 0 14px;
-}
-.row{
-display:flex;flex-wrap:wrap;gap:10px;
-}
+.card h2{font-size:22px;margin:0 0 8px}
+.card p{color:var(--muted);font-size:16px;line-height:1.55;margin:0 0 14px}
+.small{font-size:13px;color:var(--muted);line-height:1.5;margin:8px 0 0}
+
+/* PILLS */
+.row{display:flex;flex-wrap:wrap;gap:10px}
 .pill{
 border:1px solid var(--line);
 border-radius:999px;
@@ -107,34 +93,41 @@ background:#fff;
 font-weight:700;
 font-size:13px;
 }
-.action{
-display:flex;justify-content:space-between;align-items:center;
+
+/* ACCORDION */
+.details{
+border:1px solid var(--line);
+background:#fff;
+border-radius:16px;
+padding:12px 14px;
 margin-top:10px;
 }
-.linkbtn{
-border:none;
-background:transparent;
-color:var(--black);
-font-weight:800;
+.details summary{
 cursor:pointer;
-padding:0;
+list-style:none;
+font-weight:800;
+color:var(--black);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
 }
-.badge{
-font-size:12px;
-letter-spacing:.10em;
-text-transform:uppercase;
+.details summary::-webkit-details-marker{display:none}
+.chev{opacity:.7;font-weight:900}
+.details[open] .chev{transform:rotate(90deg)}
+.dline{
+margin-top:10px;
+padding-top:10px;
+border-top:1px solid var(--line);
 color:var(--muted);
+font-size:15px;
+line-height:1.55;
 }
+.dline b{color:var(--text)}
+.kv{margin:6px 0 0}
+.kv div{margin:4px 0}
 
-/* Reuse from phone demo */
-.item{
-background:var(--card);
-border-radius:14px;
-padding:12px;
-margin-bottom:10px;
-}
-
-/* PHONE DEMO */
+/* PHONE */
 .phone{
 width:320px;
 aspect-ratio:9 / 19.5;
@@ -160,43 +153,19 @@ display:flex;
 justify-content:space-between;
 font-weight:700;
 }
-.app-logo{
-text-align:center;
-padding:12px 0 4px;
-}
-.app-logo img{
-height:28px;
-opacity:.9;
-}
-.app{padding:16px;flex:1}
-.app-title{
-font-size:12px;
-letter-spacing:.14em;
-text-transform:uppercase;
-color:var(--muted);
-margin-bottom:10px;
-}
-.phone-card{
-border:1px solid var(--line);
-border-radius:16px;
-padding:14px;
-}
-.phonebtn{
+.app-logo{text-align:center;padding:12px 0 4px}
+.app-logo img{height:28px;opacity:.9}
+.app{padding:16px;flex:1;display:flex;align-items:center;justify-content:center}
+.snap-img{
 width:100%;
-margin-top:10px;
-padding:12px;
-border-radius:14px;
-border:none;
-background:var(--black);
-color:#fff;
-font-weight:700;
-cursor:pointer;
+height:auto;
+max-width:240px;
+display:block;
+margin:0 auto;
 }
 
 /* FOOTER */
-.section{
-margin:90px 0 0;
-}
+.section{margin:90px 0 0}
 .section h3{
 font-size:13px;
 letter-spacing:.14em;
@@ -220,11 +189,14 @@ margin:0 0 10px;
 <div class="topbar">
 <img src="img/logo.png" class="logo-top" alt="SNAAPX">
 <div class="right">
-<select id="lang">
+<select id="lang" aria-label="Language">
 <option value="en">EN</option>
 <option value="it">IT</option>
+<option value="de">DE</option>
+<option value="fr">FR</option>
 </select>
-<button class="btn" data-i18n="download"></button>
+
+<a class="btn" href="https://www.partseurope.eu/" target="_blank" rel="noopener" data-i18n="pe_btn"></a>
 </div>
 </div>
 
@@ -236,116 +208,271 @@ margin:0 0 10px;
 
 <section class="main">
 
-<!-- LEFT: CARD-BASED HOME (no tab bar) -->
+<!-- LEFT -->
 <div>
 
-<!-- BIKE (v0.1 active) -->
+<!-- OVERVIEW -->
 <div class="card">
-<div class="kicker" data-i18n="bike_kicker"></div>
-<h2 data-i18n="bike_title"></h2>
-<p data-i18n="bike_text"></p>
+<div class="kicker" data-i18n="ov_k"></div>
+<h2 data-i18n="ov_t"></h2>
+<p data-i18n="ov_p"></p>
 <div class="row">
-<span class="pill" data-i18n="pill_push"></span>
-<span class="pill" data-i18n="pill_history"></span>
-<span class="pill" data-i18n="pill_reset"></span>
-<span class="pill" data-i18n="pill_ai"></span>
-</div>
-<div class="action">
-<button class="linkbtn" data-i18n="bike_cta"></button>
-<span class="badge" data-i18n="mode_badge"></span>
+<span class="pill" data-i18n="pill_plug"></span>
+<span class="pill" data-i18n="pill_noecu"></span>
+<span class="pill" data-i18n="pill_noerr"></span>
+<span class="pill" data-i18n="pill_transp"></span>
 </div>
 </div>
 
-<!-- ONBOARDING (required vs optional) -->
+<!-- WHAT IT DOES -->
 <div class="card">
-<div class="kicker" data-i18n="onb_kicker"></div>
-<h2 data-i18n="onb_title"></h2>
-<p data-i18n="onb_text"></p>
-
+<div class="kicker" data-i18n="does_k"></div>
+<h2 data-i18n="does_t"></h2>
+<p data-i18n="does_p"></p>
 <div class="row">
-<span class="pill" data-i18n="onb_req"></span>
-<span class="pill" data-i18n="onb_opt"></span>
-<span class="pill" data-i18n="onb_account"></span>
+<span class="pill" data-i18n="pill_cat"></span>
+<span class="pill" data-i18n="pill_obd"></span>
+<span class="pill" data-i18n="pill_reversible"></span>
+</div>
+<p class="small" data-i18n="does_note"></p>
 </div>
 
-<div style="margin-top:14px">
-<div class="item">
-<b data-i18n="req_title"></b><br>
-<span data-i18n="req_list"></span>
-</div>
-<div class="item">
-<b data-i18n="opt_title"></b><br>
-<span data-i18n="opt_list"></span>
-</div>
-<div class="item">
-<b data-i18n="acc_title"></b><br>
-<span data-i18n="acc_list"></span>
-</div>
-</div>
-
-<div class="action">
-<button class="linkbtn" data-i18n="onb_cta"></button>
-<span class="badge" data-i18n="v01_locked"></span>
-</div>
-</div>
-
-<!-- DISCOVER (present but quiet) -->
+<!-- COMPATIBILITY -->
 <div class="card">
-<div class="kicker" data-i18n="discover_kicker"></div>
-<h2 data-i18n="discover_title"></h2>
-<p data-i18n="discover_text"></p>
+<div class="kicker" data-i18n="comp_k"></div>
+<h2 data-i18n="comp_t"></h2>
+<p data-i18n="comp_p"></p>
+
 <div class="row">
-<span class="pill" data-i18n="pill_tech"></span>
-<span class="pill" data-i18n="pill_econ"></span>
-<span class="pill" data-i18n="pill_story"></span>
-</div>
-<div class="action">
-<button class="linkbtn" data-i18n="discover_cta"></button>
-<span class="badge" data-i18n="ref_only"></span>
-</div>
+<span class="pill" data-i18n="pill_e5"></span>
+<span class="pill" data-i18n="pill_postcat"></span>
 </div>
 
-<!-- PARTS (present but quiet) -->
+<p class="small" data-i18n="comp_list"></p>
+
+<details class="details">
+<summary><span data-i18n="b_yamaha"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="yam_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="yam_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="yam_pn"></span></div>
+</div>
+<div class="small" data-i18n="yam_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_honda"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="hon_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="hon_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="hon_pn"></span></div>
+</div>
+<div class="small" data-i18n="hon_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_kawasaki"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="kaw_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="kaw_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="kaw_pn"></span></div>
+</div>
+<div class="small" data-i18n="kaw_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_bmw"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="bmw_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="bmw_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="bmw_pn"></span></div>
+</div>
+<div class="small" data-i18n="bmw_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_suzuki"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="suz_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="suz_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="suz_pn"></span></div>
+</div>
+<div class="small" data-i18n="suz_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_triumph"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="tri_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="tri_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="tri_pn"></span></div>
+</div>
+<div class="small" data-i18n="tri_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_harley"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="hdl_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="hdl_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="hdl_pn"></span></div>
+</div>
+<div class="small" data-i18n="hdl_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_motoguzzi"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="guz_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="guz_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="guz_pn"></span></div>
+</div>
+<div class="small" data-i18n="guz_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_aprilia"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="apr_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="apr_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="apr_pn"></span></div>
+</div>
+<div class="small" data-i18n="apr_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_piaggio"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="pia_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="pia_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="pia_pn"></span></div>
+</div>
+<div class="small" data-i18n="pia_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_cfmoto"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="cfm_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="cfm_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="cfm_pn"></span></div>
+</div>
+<div class="small" data-i18n="cfm_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_ducati"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="duc_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="duc_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="duc_pn"></span></div>
+</div>
+<div class="small" data-i18n="duc_note"></div>
+</div>
+</details>
+<details class="details">
+<summary><span data-i18n="b_ktm"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="ktm_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="ktm_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="ktm_pn"></span></div>
+</div>
+<div class="small" data-i18n="ktm_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_re"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="re_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="re_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="re_pn"></span></div>
+</div>
+<div class="small" data-i18n="re_note"></div>
+</div>
+</details>
+
+<details class="details">
+<summary><span data-i18n="b_indian"></span><span class="chev">›</span></summary>
+<div class="dline">
+<div class="kv">
+<div><b data-i18n="lbl_compat"></b>: <span data-i18n="ind_compat"></span></div>
+<div><b data-i18n="lbl_year"></b>: <span data-i18n="ind_year"></span></div>
+<div><b data-i18n="lbl_pn"></b>: <span data-i18n="ind_pn"></span></div>
+</div>
+<div class="small" data-i18n="ind_note"></div>
+</div>
+</details>
+
+</div><!-- /COMPATIBILITY card -->
+
+<!-- DIAGNOSTICS + INSTALLATION -->
 <div class="card">
-<div class="kicker" data-i18n="parts_kicker"></div>
-<h2 data-i18n="parts_title"></h2>
-<p data-i18n="parts_text"></p>
+<div class="kicker" data-i18n="diag_k"></div>
+<h2 data-i18n="diag_t"></h2>
+<p data-i18n="diag_p"></p>
 <div class="row">
-<span class="pill" data-i18n="pill_exhaust"></span>
-<span class="pill" data-i18n="pill_brakes"></span>
-<span class="pill" data-i18n="pill_susp"></span>
-<span class="pill" data-i18n="pill_elec"></span>
+<span class="pill" data-i18n="pill_keep"></span>
+<span class="pill" data-i18n="pill_onlycat"></span>
 </div>
-<div class="action">
-<button class="linkbtn" data-i18n="parts_cta"></button>
-<span class="badge" data-i18n="ref_only"></span>
-</div>
+<p class="small" data-i18n="diag_note"></p>
 </div>
 
-<!-- PROFILE (rarely) -->
+<!-- SNAP VS TUNING -->
 <div class="card">
-<div class="kicker" data-i18n="profile_kicker"></div>
-<h2 data-i18n="profile_title"></h2>
-<p data-i18n="profile_text"></p>
-<div class="row">
-<span class="pill" data-i18n="pill_device"></span>
-<span class="pill" data-i18n="pill_firmware"></span>
-<span class="pill" data-i18n="pill_privacy"></span>
-</div>
-<div class="action">
-<button class="linkbtn" data-i18n="profile_cta"></button>
-<span class="badge" data-i18n="ref_only"></span>
-</div>
+<div class="kicker" data-i18n="svt_k"></div>
+<h2 data-i18n="svt_t"></h2>
+
+<p><b data-i18n="svt_trad_t"></b></p>
+<p data-i18n="svt_trad_p"></p>
+
+<p><b data-i18n="svt_snap_t"></b></p>
+<p data-i18n="svt_snap_p"></p>
+
+<p class="small" data-i18n="svt_sum"></p>
 </div>
 
+<!-- DISTRIBUTION -->
+<div class="card">
+<div class="kicker" data-i18n="dist_k"></div>
+<h2 data-i18n="dist_t"></h2>
+<p data-i18n="dist_p"></p>
 </div>
 
-<!-- RIGHT: PHONE DEMO (visual only, same style) -->
+</div><!-- /LEFT column -->
+<!-- RIGHT -->
 <div>
+
 <div class="phone">
 <div class="screen">
 <div class="statusbar">
-<span>SNAAPX</span><span>9:41</span>
+<span>SNAAPX</span>
+<span>9:41</span>
 </div>
 
 <div class="app-logo">
@@ -353,187 +480,152 @@ margin:0 0 10px;
 </div>
 
 <div class="app">
-<div class="app-title" data-i18n="phone_title"></div>
-<div class="phone-card">
-<b data-i18n="phone_mode"></b>
-<div class="item"><b data-i18n="phone_event"></b><br>P0130 · Oxygen sensor abnormal signal</div>
-<div class="item"><b data-i18n="phone_history"></b><br>Issue returned · 2 days ago</div>
-<button class="phonebtn" data-i18n="phone_details"></button>
-<button class="phonebtn" data-i18n="phone_reset"></button>
-<button class="phonebtn" data-i18n="phone_ai"></button>
-</div>
+<img class="snap-img" src="img/snap-device.png" alt="Snap device">
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3 data-i18n="dev_title"></h3>
-<p data-i18n="dev_text1"></p>
-<p data-i18n="dev_text2"></p>
-</div>
+<h3 data-i18n="legal_t"></h3>
+<p data-i18n="legal_p"></p>
 </div>
 
-</section>
+</div><!-- /RIGHT column -->
 
-</div>
+</section><!-- /MAIN -->
 
-<script>
-const t = {
-en:{
-download:"Download app",
-hero_title:"SnaapX v0.1 reference",
-hero_sub:"Event-based diagnostics. No scans.<br>Only real DTC events — when they happen.",
-hero_note:"Internal/dev reference page (not marketing). Visual style locked (logo/colors/phone).",
+</div><!-- /wrap -->
+de:{
+pe_btn:"Parts Europe",
 
-bike_kicker:"Bike",
-bike_title:"When something happens",
-bike_text:"v0.1 is built around push-only DTC events, history, AI probable causes, and reset ALL codes.",
-pill_push:"Push-only DTC",
-pill_history:"History",
-pill_reset:"Reset ALL",
-pill_ai:"AI probable cause",
-bike_cta:"Open event inbox (concept)",
-mode_badge:"RACING MODE",
+hero_title:"SNAP – Plug’n Ride",
+hero_sub:"Komplette Racing-Abgasanlagen für Euro-5+ Motorräder.<br>Kein ECU-Remap. Keine Warnleuchten. Kein Notlauf.",
+hero_note:"Snap arbeitet transparent über die Diagnoseschnittstelle. Die OEM-Logik bleibt unverändert. Sicherheit und Diagnose bleiben aktiv.",
 
-onb_kicker:"Onboarding",
-onb_title:"What we ask (and why)",
-onb_text:"v0.1 requires only the bike identity to keep the experience calm and accurate. Optional inputs improve context but never unlock modes.",
-onb_req:"Required",
-onb_opt:"Optional",
-onb_account:"Account (light)",
+ov_k:"Übersicht",
+ov_t:"Sichere und reversible Lösung für Euro-5+",
+ov_p:"Snap ist das Plug’n-Ride-System, mit dem komplette Racing-Abgasanlagen auf Euro-5+ Motorrädern montiert werden können – ohne Eingriff in die originale ECU. Es verhindert Katalysator-Fehlercodes und erhält alle OEM-Sicherheits- und Diagnosefunktionen.",
+pill_plug:"Plug & Play",
+pill_noecu:"Kein ECU-Remap",
+pill_noerr:"Keine Fehler",
+pill_transp:"Transparent",
 
-req_title:"Required (v0.1)",
-req_list:"Country · Brand · Model · Year",
+does_k:"Funktion",
+does_t:"Verhindert ausschließlich den Katalysator-Fehler",
+does_p:"Snap kommuniziert über die Diagnoseschnittstelle mit der ECU. Es unterdrückt ausschließlich den Fehlercode des entfernten Katalysators. Motorkennfelder, Sensoren, Begrenzer, AFR oder Drehmomentstrategien bleiben unverändert.",
+pill_cat:"Nur Kat-DTC",
+pill_obd:"OBD aktiv",
+pill_reversible:"Voll reversibel",
+does_note:"Wenn die Motorkontrollleuchte aufleuchtet, ist die Ursache nicht der Auspuff und eine normale Diagnose ist erforderlich.",
 
-opt_title:"Optional (recommended)",
-opt_list:"Mileage range · Usage (Track/Street/Mixed) · Exhaust (Stock/Aftermarket/Unknown) · Air filter (Stock/High-flow/Unknown)",
+comp_k:"Kompatibilität",
+comp_t:"Euro-5+ mit Post-Kat-Lambdasonde",
+comp_p:"Snap ist mit allen Euro-5+ Motorrädern kompatibel, die über eine Lambdasonde nach dem Katalysator verfügen. Für bestimmte Marken sind spezielle Teilenummern verfügbar.",
+pill_e5:"Euro-5+",
+pill_postcat:"Post-Kat-Sonde erforderlich",
+comp_list:"Unterstützte Marken: Honda, Kawasaki, BMW, Moto Guzzi, Aprilia, Piaggio, Triumph, Suzuki, CFMoto, Harley-Davidson, Indian, Royal Enfield, KTM, Ducati, Yamaha.",
 
-acc_title:"Account (optional, light)",
-acc_list:"Email + OTP. Guest allowed. Account enables cloud history / support later.",
+lbl_compat:"Kompatibilität",
+lbl_year:"Ab Baujahr",
+lbl_pn:"Art.-Nr.",
 
-onb_cta:"View onboarding flow (concept)",
-v01_locked:"V0.1 LOCKED",
+diag_k:"Diagnose & Installation",
+diag_t:"Alles bleibt aktiv",
+diag_p:"Alle Diagnosefunktionen bleiben aktiv. Snap verhindert ausschließlich den Katalysator-Fehlercode. Alle anderen Fehler werden normal erkannt und gemeldet.",
+pill_keep:"Snap verbunden lassen",
+pill_onlycat:"Nur Kat-Fehler",
+diag_note:"Installation (3 Schritte): Snap bei ausgeschalteter Zündung anschließen · während montiertem Racing-Auspuff verbunden lassen · Post-Kat-Lambdasonde angeschlossen lassen.",
 
-discover_kicker:"Discover",
-discover_title:"When you’re curious",
-discover_text:"A calm knowledge layer about your bike (technical + economic + story). Built as cards, not features.",
-pill_tech:"Tech curiosities",
-pill_econ:"Economic curiosities",
-pill_story:"Model & brand story",
-discover_cta:"Explore (concept)",
-ref_only:"REFERENCE ONLY",
+svt_k:"Snap vs. Tuning",
+svt_t:"Ingenieurslogik statt riskanter ECU-Eingriffe",
+svt_trad_t:"Klassisches Tuning (ECU-Remap)",
+svt_trad_p:"Moderne Euro-5+ ECUs sind geschlossene Systeme. Remaps greifen oft nur teilweise und werden durch Closed-Loop-Strategien korrigiert. Dies kann zu Instabilität, Warnleuchten, Notlauf und Garantieproblemen führen.",
+svt_snap_t:"Snap (Plug’n Ride)",
+svt_snap_p:"Snap verändert keine Motorkennfelder. Es arbeitet transparent über die Diagnoseschnittstelle und verhindert ausschließlich den Katalysator-Fehler – bei voller Erhaltung aller Sicherheits- und Diagnosefunktionen.",
+svt_sum:"Fazit: Klassisches Tuning erzwingt Änderungen mit Risiken. Snap arbeitet mit der ECU – sicher und zuverlässig.",
 
-parts_kicker:"Parts",
-parts_title:"When you’re thinking what to do",
-parts_text:"Bike-specific parts & accessories search. Useful discovery first. Monetization optional later.",
-pill_exhaust:"Exhaust",
-pill_brakes:"Brakes",
-pill_susp:"Suspension",
-pill_elec:"Electronics",
-parts_cta:"Browse categories (concept)",
+dist_k:"Vertrieb",
+dist_t:"Exklusiver Vertrieb in Europa",
+dist_p:"Snap wird in Europa exklusiv von Parts Europe vertrieben.",
 
-profile_kicker:"Profile",
-profile_title:"Rarely used",
-profile_text:"Bike profile, device, firmware, operating mode, privacy. Minimal, technical, neutral.",
-pill_device:"Device",
-pill_firmware:"Firmware",
-pill_privacy:"Privacy",
-profile_cta:"Settings (concept)",
-
-phone_title:"Event inbox (mock)",
-phone_mode:"RACING MODE",
-phone_event:"Issue detected",
-phone_history:"History",
-phone_details:"View details",
-phone_reset:"Reset ALL codes",
-phone_ai:"AI probable cause",
-
-dev_title:"v0.1 scope reminder",
-dev_text1:"The app does not scan. The device pushes DTC events only when a real fault occurs.",
-dev_text2:"Discover/Parts/Profile are shown here only to align the long-term architecture. v0.1 focuses on Bike (events + history + AI + reset)."
+legal_t:"Hinweis",
+legal_p:"Snap ist – wie die unterstützten Racing-Abgasanlagen – ausschließlich für den Einsatz auf geschlossenen Rennstrecken vorgesehen. Nicht für den Straßenverkehr zugelassen."
 },
+fr:{
+pe_btn:"Parts Europe",
 
-it:{
-download:"Scarica l’app",
-hero_title:"SnaapX v0.1 reference",
-hero_sub:"Diagnostica basata su eventi. Niente scan.<br>Solo DTC reali — quando accadono.",
-hero_note:"Pagina reference interna/dev (non marketing). Stile visivo bloccato (logo/colori/telefono).",
+hero_title:"SNAP – Plug’n Ride",
+hero_sub:"Échappements racing complets sur motos Euro 5+.<br>Pas de reprogrammation ECU. Pas de voyant. Pas de mode dégradé.",
+hero_note:"Snap fonctionne de façon transparente via la prise diagnostic. La logique OEM reste intacte. Sécurité et diagnostics restent actifs.",
 
-bike_kicker:"Bike",
-bike_title:"Quando succede qualcosa",
-bike_text:"v0.1 ruota attorno a eventi DTC push-only, storico, AI causa probabile e reset TUTTI i codici.",
-pill_push:"DTC push-only",
-pill_history:"Storico",
-pill_reset:"Reset ALL",
-pill_ai:"AI causa probabile",
-bike_cta:"Apri inbox eventi (concetto)",
-mode_badge:"RACING MODE",
+ov_k:"Présentation",
+ov_t:"Solution sûre et réversible pour Euro 5+",
+ov_p:"Snap est le dispositif Plug’n Ride qui permet d’installer des échappements racing complets sur les motos Euro 5+ sans modifier l’ECU d’origine. Il empêche les erreurs liées au catalyseur tout en conservant toutes les fonctions OEM de sécurité et de diagnostic.",
+pill_plug:"Plug & play",
+pill_noecu:"Pas de remap ECU",
+pill_noerr:"Zéro erreur",
+pill_transp:"Transparent",
 
-onb_kicker:"Onboarding",
-onb_title:"Cosa chiediamo (e perché)",
-onb_text:"v0.1 richiede solo l’identità della moto per mantenere l’esperienza calma e precisa. I dati facoltativi aggiungono contesto ma non sbloccano modalità.",
-onb_req:"Obbligatori",
-onb_opt:"Facoltativi",
-onb_account:"Account (light)",
+does_k:"Fonction",
+does_t:"Empêche uniquement l’erreur catalyseur",
+does_p:"Snap communique avec l’ECU via la prise diagnostic. Il empêche uniquement l’erreur liée au catalyseur retiré lors du montage d’un échappement complet. Il ne modifie pas les cartographies moteur, ne désactive aucun capteur et n’affecte pas les limiteurs, l’AFR ou les stratégies de couple.",
+pill_cat:"DTC catalyseur seul",
+pill_obd:"OBD actif",
+pill_reversible:"Réversible",
+does_note:"Si le voyant moteur s’allume, la cause n’est pas liée à l’échappement et un diagnostic standard est nécessaire.",
 
-req_title:"Obbligatori (v0.1)",
-req_list:"Nazione · Marca · Modello · Anno",
+comp_k:"Compatibilité",
+comp_t:"Euro 5+ avec sonde post-catalyseur",
+comp_p:"Snap est compatible avec toutes les motos Euro 5+ équipées d’une sonde lambda post-catalyseur. Des références dédiées existent pour certaines marques. Voir les notes ci-dessous.",
+pill_e5:"Euro 5+",
+pill_postcat:"Sonde post-cat requise",
+comp_list:"Marques supportées : Honda, Kawasaki, BMW, Moto Guzzi, Aprilia, Piaggio, Triumph, Suzuki, CFMoto, Harley-Davidson, Indian, Royal Enfield, KTM, Ducati, Yamaha.",
 
-opt_title:"Facoltativi (consigliati)",
-opt_list:"Km (range) · Uso (Track/Street/Mixed) · Scarico (Stock/Aftermarket/Unknown) · Filtro aria (Stock/High-flow/Unknown)",
+lbl_compat:"Compatibilité",
+lbl_year:"À partir de",
+lbl_pn:"Réf.",
 
-acc_title:"Account (opzionale, light)",
-acc_list:"Email + OTP. Guest consentito. L’account abilita storico cloud / supporto in futuro.",
+diag_k:"Diagnostic & Installation",
+diag_t:"Tout reste actif",
+diag_p:"Toutes les fonctions de diagnostic restent opérationnelles. Snap empêche exclusivement le code d’erreur catalyseur. Tous les autres codes défaut sont détectés et signalés normalement.",
+pill_keep:"Laisser Snap connecté",
+pill_onlycat:"DTC catalyseur seul",
+diag_note:"Installation (3 étapes) : connecter Snap contact coupé · le laisser connecté tant que l’échappement racing complet est installé · conserver la sonde post-cat connectée.",
 
-onb_cta:"Vedi flow onboarding (concetto)",
-v01_locked:"V0.1 BLOCCATA",
+svt_k:"Snap vs Tuning",
+svt_t:"Logique d’ingénierie vs remaps risqués",
+svt_trad_t:"Tuning traditionnel (remap ECU d’origine)",
+svt_trad_p:"Les ECU modernes Euro 5+ sont des systèmes fermés. Les remaps sont souvent partiels et peuvent être corrigés par les stratégies closed-loop. Cela peut entraîner instabilité, voyant moteur, mode dégradé et risques de garantie.",
+svt_snap_t:"Snap (Plug’n Ride)",
+svt_snap_p:"Snap ne modifie aucune cartographie. Il agit via la prise diagnostic et empêche uniquement l’erreur catalyseur, tout en conservant toutes les fonctions de sécurité et de diagnostic actives.",
+svt_sum:"Résumé : le tuning traditionnel force l’ECU avec des risques. Snap travaille avec l’ECU, de manière sûre et fiable.",
 
-discover_kicker:"Discover",
-discover_title:"Quando sei curioso",
-discover_text:"Strato di conoscenza calmo sulla tua moto (tecnico + economico + storia). Card, non funzioni.",
-pill_tech:"Curiosità tecniche",
-pill_econ:"Curiosità economiche",
-pill_story:"Storia modello/brand",
-discover_cta:"Esplora (concetto)",
-ref_only:"SOLO REFERENCE",
+dist_k:"Distribution",
+dist_t:"Distribution exclusive en Europe",
+dist_p:"Snap est distribué en exclusivité en Europe par Parts Europe.",
 
-parts_kicker:"Parts",
-parts_title:"Quando pensi a cosa fare",
-parts_text:"Ricerca accessori e parti specifiche per la tua moto. Prima utilità, poi monetizzazione opzionale.",
-pill_exhaust:"Scarico",
-pill_brakes:"Freni",
-pill_susp:"Sospensioni",
-pill_elec:"Elettronica",
-parts_cta:"Sfoglia categorie (concetto)",
-
-profile_kicker:"Profile",
-profile_title:"Raramente",
-profile_text:"Profilo moto, device, firmware, modalità operativa, privacy. Minimo, tecnico, neutro.",
-pill_device:"Device",
-pill_firmware:"Firmware",
-pill_privacy:"Privacy",
-profile_cta:"Impostazioni (concetto)",
-
-phone_title:"Inbox eventi (mock)",
-phone_mode:"RACING MODE",
-phone_event:"Guasto rilevato",
-phone_history:"Storico",
-phone_details:"Apri dettaglio",
-phone_reset:"Reset TUTTI i codici",
-phone_ai:"AI causa probabile",
-
-dev_title:"Promemoria scope v0.1",
-dev_text1:"L’app non esegue scan. Il device invia eventi DTC solo quando avviene un guasto reale.",
-dev_text2:"Discover/Parts/Profile sono mostrati qui solo per allineare l’architettura futura. v0.1 è Bike (eventi + storico + AI + reset)."
-}
+legal_t:"Avertissement",
+legal_p:"Snap, comme les échappements racing qu’il supporte, est destiné uniquement à un usage sur circuit fermé. Non homologué pour la route."
+},
 };
 
 function setLang(l){
 document.querySelectorAll("[data-i18n]").forEach(el=>{
-el.innerHTML=t[l][el.dataset.i18n];
+const k = el.dataset.i18n;
+if(t[l] && t[l][k]){
+el.innerHTML = t[l][k];
+}
 });
 }
-document.getElementById("lang").onchange=e=>setLang(e.target.value);
+
+const langSel = document.getElementById("lang");
+if(langSel){
+langSel.addEventListener("change", e=>{
+setLang(e.target.value);
+});
+}
+
+// default language
 setLang("en");
 </script>
 
