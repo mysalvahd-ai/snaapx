@@ -1354,3 +1354,24 @@ dist_p:"Snap est distribué en exclusivité en Europe par Parts Europe.",
 legal_t:"Avertissement",
 legal_p:"Usage uniquement sur circuit fermé. Non homologué route."
 },
+};
+
+function setLang(l){
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const k = el.dataset.i18n;
+if(t[l] && t[l][k]){
+el.innerHTML = t[l][k];
+}
+});
+}
+
+const langSel = document.getElementById("lang");
+if(langSel){
+langSel.addEventListener("change", e => setLang(e.target.value));
+}
+
+setLang("en");
+</script>
+
+</body>
+</html>
