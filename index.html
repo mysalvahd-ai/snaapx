@@ -127,15 +127,26 @@ line-height:1.55;
 .kv{margin:6px 0 0}
 .kv div{margin:4px 0}
 
-/* PHONE (clean + big device inside) */
+/* PHONE (responsive, controllato su PC e mobile) */
 .phone{
-width: min(92vw, 420px);
+/* ↓ cambia questi 2 per “più piccolo / più grande” */
+--phone-max: 360px; /* massimo su desktop */
+--phone-min: 260px; /* minimo su schermi stretti */
+
+width: clamp(var(--phone-min), 28vw, var(--phone-max));
 aspect-ratio: 9 / 19.5;
 background:#000;
 border-radius: 54px;
 padding: 14px;
 margin: 0 auto;
 box-shadow: 0 30px 70px rgba(0,0,0,.25);
+}
+
+@media (max-width: 720px){
+.phone{
+/* su mobile: grande ma non “gigante” */
+width: min(86vw, 360px);
+}
 }
 
 .screen{
@@ -148,62 +159,48 @@ display:flex;
 flex-direction:column;
 }
 
-/* top status bar */
+/* top bar finta */
 .statusbar{
 font-size:12px;
-padding:10px 16px;
+padding: 10px 16px;
 display:flex;
 justify-content:space-between;
 font-weight:700;
 }
 
-/* logo area */
+/* logo dentro schermo */
 .app-logo{
-display:flex;
-justify-content:center;
-padding:6px 0 0;
+text-align:center;
+padding: 10px 0 6px;
 }
 .app-logo img{
-height:28px;
-opacity:.9;
+height: 26px;
+opacity: .9;
 }
 
-/* main area that must "give space" to the image */
+/* area contenuto (l’immagine Snap) */
 .app{
-flex: 1; /* IMPORTANT: take all remaining height */
+flex: 1;
 display:flex;
 align-items:center;
 justify-content:center;
-padding: 0; /* remove extra padding */
+
+/* controlla quanto “respiro” sopra/sotto ha l’immagine */
+padding: 12px 16px 18px;
 }
 
-/* make the SNAP image huge */
+/* immagine Snap: grande dentro lo schermo, senza deformare */
 .snap-img{
-width: auto;
-height: 78%; /* IMPORTANT: fills most of the screen */
-max-height: 78%;
-max-width: 92%;
+width: 100%;
+height: 100%;
+max-width: none;
+
+/* ↑ se vuoi PIÙ grande dentro lo schermo, aumenta 92vh -> 95% */
+max-height: 92%;
+
 object-fit: contain;
 display:block;
-}
-
-/* Mobile: even bigger */
-@media (max-width: 768px){
-.phone{
-width: min(94vw, 460px);
-}
-.snap-img{
-height: 86%;
-max-height: 86%;
-max-width: 94%;
-}
-}
-
-/* Desktop: keep the phone mockup smaller */
-@media (min-width: 1024px){
-.phone{
-width: 380px;
-}
+margin: 0 auto;
 }
 
 /* FOOTER */
@@ -1143,6 +1140,7 @@ setLang("en");
 
 </body>
 </html>
+
 
 
 
