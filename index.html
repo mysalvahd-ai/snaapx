@@ -1,4 +1,3 @@
-<!-- BLOCCO 1/4 -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,11 +54,15 @@ h1{font-size:56px;line-height:1.05;margin:0 0 10px}
 .subtitle{font-size:20px;color:var(--muted);margin:0}
 .note{font-size:14px;color:var(--muted);margin:12px 0 0}
 
-/* MAIN (single column, no right side) */
+/* MAIN */
 .main{
-display:block;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:34px;
+align-items:start;
 margin-top:34px;
 }
+@media(max-width:980px){.main{grid-template-columns:1fr}}
 
 /* CARDS */
 .card{
@@ -124,6 +127,46 @@ line-height:1.55;
 .kv{margin:6px 0 0}
 .kv div{margin:4px 0}
 
+/* PHONE */
+.phone{
+width: 92vw;
+aspect-ratio:9 / 19.5;
+background:#000;
+border-radius:54px;
+padding:14px;
+margin:0 auto;
+box-shadow:0 30px 70px rgba(0,0,0,.25);
+}
+.screen{
+width:100%;
+height:100%;
+background:#fff;
+border-radius:40px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+}
+.statusbar{
+font-size:12px;
+padding:10px 16px;
+display:flex;
+justify-content:space-between;
+font-weight:700;
+}
+.app-logo{text-align:center;padding:12px 0 4px}
+.app-logo img{height:28px;opacity:.9}
+.app{padding:0;flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.snap-img{
+width: 100%;
+height: auto;
+max-width: none;
+max-height: 70vh;
+object-fit: contain;
+display: block;
+margin: auto;
+}
+
+
 /* FOOTER */
 .section{margin:90px 0 0}
 .section h3{
@@ -166,7 +209,7 @@ margin:0 0 10px;
 
 <section class="main">
 
-<!-- CONTENT (single column) -->
+<!-- LEFT -->
 <div>
 <!-- OVERVIEW -->
 <div class="card">
@@ -186,14 +229,17 @@ margin:0 0 10px;
 <div class="kicker" data-i18n="does_k"></div>
 <h2 data-i18n="does_t"></h2>
 <p data-i18n="does_p"></p>
+
+
 <div class="row">
+
 <span class="pill" data-i18n="pill_cat"></span>
 <span class="pill" data-i18n="pill_obd"></span>
 <span class="pill" data-i18n="pill_reversible"></span>
 </div>
 <p class="small" data-i18n="does_note"></p>
 </div>
-<!-- BLOCCO 2/4 -->
+
 <!-- COMPATIBILITY -->
 <div class="card">
 <div class="kicker" data-i18n="comp_k"></div>
@@ -206,7 +252,6 @@ margin:0 0 10px;
 </div>
 
 <p class="small" data-i18n="comp_list"></p>
-
 <details class="details">
 <summary><span data-i18n="b_yamaha"></span><span class="chev">›</span></summary>
 <div class="dline">
@@ -314,7 +359,7 @@ margin:0 0 10px;
 <div class="small" data-i18n="apr_note"></div>
 </div>
 </details>
-<!-- BLOCCO 3/4 -->
+
 <details class="details">
 <summary><span data-i18n="b_piaggio"></span><span class="chev">›</span></summary>
 <div class="dline">
@@ -388,7 +433,6 @@ margin:0 0 10px;
 </details>
 
 </div><!-- /COMPATIBILITY card -->
-
 <!-- DIAGNOSTICS + INSTALLATION -->
 <div class="card">
 <div class="kicker" data-i18n="diag_k"></div>
@@ -419,10 +463,31 @@ margin:0 0 10px;
 <p data-i18n="dist_p"></p>
 </div>
 
-</div><!-- /CONTENT -->
+</div><!-- /LEFT -->
+
+<!-- RIGHT -->
+<div>
+
+<div class="phone">
+<div class="screen">
+<div class="statusbar"><span>SNAAPX</span><span>9:41</span></div>
+<div class="app-logo"><img src="img/logo.png" alt="SNAAPX"></div>
+<div class="app">
+<img class="snap-img" src="img/snap-device-white.png" alt="Snap device">
+
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3 data-i18n="legal_t"></h3>
+<p data-i18n="legal_p"></p>
+</div>
+
+</div><!-- /RIGHT -->
+
 </section><!-- /MAIN -->
 </div><!-- /wrap -->
-<!-- BLOCCO 4/4 -->
 <script>
 const t = {
 en:{
@@ -517,7 +582,6 @@ pia_compat:"ALL Euro 5+",
 pia_year:"2025 (some 2024)",
 pia_pn:"SN25ALL0000",
 pia_note:"Excellent performance. No errors. Snap is fully transparent.",
-
 b_cfmoto:"CFMoto",
 cfm_compat:"ALL Euro 5+",
 cfm_year:"2025 (some 2024)",
@@ -565,13 +629,460 @@ svt_sum:"Summary: traditional tuning forces the ECU with risks. Snap works with 
 
 dist_k:"Distribution",
 dist_t:"Exclusive distribution in Europe",
-dist_p:"Snap is exclusively distributed in Europe by Parts Europe."
+dist_p:"Snap is exclusively distributed in Europe by Parts Europe.",
+
+legal_t:"Legal notice",
+legal_p:"Snap is intended for racing use only on closed circuits. Not approved for road use."
 },
 
-/* IT/DE/FR: leave as in your original file (unchanged) */
-it: t?.it || {},
-de: t?.de || {},
-fr: t?.fr || {}
+it:{
+pe_btn:"Parts Europe",
+hero_title:"SNAP – Plug’n Ride",
+hero_sub:"Scarichi completi racing su moto Euro 5+.<br>Nessuna rimappatura ECU. Niente spie. Niente recovery.",
+hero_note:"Snap lavora in totale trasparenza tramite la presa diagnosi. La logica OEM resta intatta. Sicurezza e diagnostica restano attive.",
+
+ov_k:"Presentazione",
+ov_t:"Soluzione sicura e reversibile per Euro 5+",
+ov_p:"Snap è il dispositivo Plug’n Ride che permette di installare scarichi completi racing su moto Euro 5+ senza rimappare la ECU di serie. Previene gli errori legati al catalizzatore mantenendo attive tutte le funzioni OEM di sicurezza e diagnosi.",
+pill_plug:"Plug & play",
+pill_noecu:"Nessuna rimappa",
+pill_noerr:"Zero errori",
+pill_transp:"Trasparente",
+
+does_k:"Cosa fa",
+does_t:"Il massimo che il motore può dare",
+does_p:"Con uno scarico completo il motore ha un potenziale superiore rispetto alla configurazione originale. Snap consente di utilizzare questa configurazione su moto Euro 5+ senza forzare la ECU e senza tuning. La centralina rimane completamente originale, la diagnostica resta attiva e il motore lavora secondo la logica prevista dal costruttore, esprimendo il massimo delle prestazioni possibili per quella specifica configurazione meccanica.",
+
+pill_cat:"Solo DTC cat",
+pill_obd:"OBD attivo",
+pill_reversible:"Reversibile",
+does_note:"Se si accende la spia motore, la causa non è legata allo scarico e va fatta una diagnosi standard.",
+comp_k:"Compatibilità",
+comp_t:"Euro 5+ con sonda post-cat",
+comp_p:"Snap è compatibile con moto Euro 5+ dotate di sonda lambda post-catalizzatore. Per alcuni brand esistono codici dedicati. Vedi note sotto.",
+pill_e5:"Euro 5+",
+pill_postcat:"Richiede sonda post-cat",
+comp_list:"Brand supportati: Honda, Kawasaki, BMW, Moto Guzzi, Aprilia, Piaggio, Triumph, Suzuki, CFMoto, Harley-Davidson, Indian, Royal Enfield, KTM, Ducati, Yamaha.",
+
+lbl_compat:"Compatibilità",
+lbl_year:"Da anno",
+lbl_pn:"P.N.",
+
+b_yamaha:"Yamaha",
+yam_compat:"TUTTI Euro 5+",
+yam_year:"2025 (alcuni 2024)",
+yam_pn:"SN25ALL0000",
+yam_note:"Snap è compatibile e trasparente. Su alcuni modelli Yamaha, la strategia diagnostica ufficiale impedisce la comunicazione ECU finché la moto non viene riavviata dopo un errore. Questo può causare una spia temporanea che si spegne al successivo ciclo di accensione. Comportamento normale. Nessun rischio.",
+
+b_honda:"Honda (dedicata)",
+hon_compat:"TUTTI Euro 5+",
+hon_year:"2025 (alcuni 2024)",
+hon_pn:"SN25HONDA00",
+hon_note:"Compatibilità completa e stabile. Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_kawasaki:"Kawasaki (dedicata)",
+kaw_compat:"TUTTI Euro 5+",
+kaw_year:"2025 (alcuni 2024)",
+kaw_pn:"SN25KAVA0000",
+kaw_note:"Versione Snap dedicata con codice specifico. Prestazioni eccellenti. Nessun errore. Integrazione completamente trasparente.",
+
+b_bmw:"BMW",
+bmw_compat:"TUTTI Euro 5+",
+bmw_year:"2024",
+bmw_pn:"SN25BMWCF00",
+bmw_note:"Compatibilità completa e stabile. Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_suzuki:"Suzuki",
+suz_compat:"TUTTI Euro 5+",
+suz_year:"2025",
+suz_pn:"SN25ALL0000",
+suz_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_triumph:"Triumph",
+tri_compat:"TUTTI Euro 5+",
+tri_year:"2025 (alcuni 2024)",
+tri_pn:"SN25ALL0000",
+tri_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_harley:"Harley-Davidson",
+hdl_compat:"TUTTI Euro 5+ e Euro 5 dal 2021",
+hdl_year:"2021+",
+hdl_pn:"SN25ALL0000",
+hdl_note:"Snap è obbligatorio con scarichi racing. Senza Snap la spia è garantita per via del sensore post-catalizzatore. Con Snap installato: compatibilità totale e nessun errore.",
+
+b_motoguzzi:"Moto Guzzi",
+guz_compat:"TUTTI Euro 5+",
+guz_year:"2025 (alcuni 2024)",
+guz_pn:"SN25ALL0000",
+guz_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_aprilia:"Aprilia",
+apr_compat:"TUTTI Euro 5+",
+apr_year:"2025 (alcuni 2024)",
+apr_pn:"SN25ALL0000",
+apr_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_piaggio:"Piaggio",
+pia_compat:"TUTTI Euro 5+",
+pia_year:"2025 (alcuni 2024)",
+pia_pn:"SN25ALL0000",
+pia_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_cfmoto:"CFMoto",
+cfm_compat:"TUTTI Euro 5+",
+cfm_year:"2025 (alcuni 2024)",
+cfm_pn:"SN25BMWCF00",
+cfm_note:"Stessa architettura diagnostica BMW. Compatibilità stabile e senza errori.",
+
+b_ducati:"Ducati",
+duc_compat:"TUTTI Euro 5+",
+duc_year:"2025 (alcuni 2024)",
+duc_pn:"SN25ALL0000",
+duc_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_ktm:"KTM",
+ktm_compat:"TUTTI Euro 5+",
+ktm_year:"2025 (alcuni 2024)",
+ktm_pn:"SN25ALL0000",
+ktm_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_re:"Royal Enfield",
+re_compat:"TUTTI Euro 5+",
+re_year:"2025",
+re_pn:"SN25ALL0000",
+re_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+b_indian:"Indian",
+ind_compat:"TUTTI Euro 5+",
+ind_year:"2025 (alcuni 2024)",
+ind_pn:"SN25ALL0000",
+ind_note:"Prestazioni eccellenti. Nessun errore. Snap è completamente trasparente.",
+
+diag_k:"Diagnostica & Installazione",
+diag_t:"Tutto resta attivo",
+diag_p:"Tutte le funzioni di diagnosi restano operative. Snap previene esclusivamente il codice catalizzatore. Qualsiasi altro DTC viene rilevato e segnalato normalmente.",
+pill_keep:"Lascia Snap collegato",
+pill_onlycat:"Solo DTC cat",
+diag_note:"Installazione (3 passaggi): collega Snap a moto spenta · lascialo collegato finché lo scarico completo è installato · verifica che la sonda post-cat resti collegata.",
+
+svt_k:"Snap vs Tuning",
+svt_t:"Logica ingegneristica vs rimappe rischiose",
+svt_trad_t:"Tuning tradizionale (rimappa ECU di serie)",
+svt_trad_p:"Le ECU moderne Euro 5+ sono sistemi chiusi. Le rimappe spesso sono parziali e possono essere corrette dal closed-loop, con rischi di instabilità, spie, limp mode e problemi garanzia.",
+svt_snap_t:"Snap (Plug’n Ride)",
+svt_snap_p:"Snap non modifica mappe. Lavora via presa diagnosi e previene solo l’errore catalizzatore lasciando attive sicurezza e diagnostica. Reversibile scollegandolo.",
+svt_sum:"Sintesi: il tuning tradizionale forza la ECU con rischi. Snap lavora con la ECU — sicuro e affidabile.",
+
+dist_k:"Distribuzione",
+dist_t:"Distribuzione esclusiva in Europa",
+dist_p:"Snap è distribuito in esclusiva in Europa da Parts Europe.",
+
+legal_t:"Avvertenze",
+legal_p:"Snap è destinato esclusivamente all’uso sportivo su pista chiusa. Non omologato per uso su strada."
+},
+de:{
+pe_btn: "Parts Europe",
+
+hero_title: "SNAP – Plug’n Ride",
+hero_sub: "Komplette Racing-Abgasanlagen für Euro-5+ Motorräder.<br>Kein ECU-Remap. Keine Warnleuchten. Kein Notlauf.",
+hero_note: "Snap arbeitet vollständig transparent über die Diagnoseschnittstelle. Die OEM-Logik bleibt unverändert. Sicherheit und Diagnosefunktionen bleiben aktiv.",
+
+ov_k: "Übersicht",
+ov_t: "Sichere, reversible Lösung für Euro-5+",
+ov_p: "Snap ermöglicht den Einsatz kompletter Racing-Abgasanlagen auf Euro-5+ Motorrädern ohne Eingriff in die Serien-ECU. Der Katalysator-Fehlercode wird unterdrückt, während OEM-Diagnose und Sicherheitsfunktionen aktiv bleiben.",
+
+pill_plug: "Plug & Play",
+pill_noecu: "Kein ECU-Remap",
+pill_noerr: "Keine Fehler",
+pill_transp: "Transparent",
+
+does_k: "Funktion",
+does_t: "Das Maximum, das der Motor leisten kann",
+does_p: "Mit einer kompletten Abgasanlage verfügt der Motor über ein höheres Potenzial als in der Serienkonfiguration. Snap ermöglicht diese Konfiguration auf Euro-5+ Motorrädern ohne ECU-Manipulation oder klassisches Tuning. Die ECU bleibt vollständig original, die Diagnose aktiv und der Motor arbeitet gemäß der vom Hersteller vorgesehenen Logik, wodurch die maximal möglichen Leistungen dieser mechanischen Konfiguration genutzt werden.",
+
+pill_cat: "Nur Kat-DTC",
+pill_obd: "OBD aktiv",
+pill_reversible: "Reversibel",
+
+does_note: "Leuchtet die Motorkontrollleuchte auf, ist eine normale Diagnose erforderlich.",
+
+comp_k: "Kompatibilität",
+comp_t: "Euro-5+ mit Post-Kat-Lambdasonde",
+comp_p: "Kompatibel mit Euro-5+ Motorrädern mit Post-Kat-Lambdasonde. Für bestimmte Marken sind spezielle Teilenummern verfügbar.",
+
+pill_e5: "Euro-5+",
+pill_postcat: "Post-Kat erforderlich",
+
+comp_list: "Marken: Honda, Kawasaki, BMW, Moto Guzzi, Aprilia, Piaggio, Triumph, Suzuki, CFMoto, Harley-Davidson, Indian, Royal Enfield, KTM, Ducati, Yamaha.",
+
+lbl_compat: "Kompatibilität",
+lbl_year: "Ab Baujahr",
+lbl_pn: "Art.-Nr."
+,
+
+
+b_yamaha:"Yamaha",
+yam_compat:"ALLE Euro-5+",
+yam_year:"2025 (teils 2024)",
+yam_pn:"SN25ALL0000",
+yam_note:"Auf einigen Modellen ist nach einem Fehler ein Neustart nötig; ggf. kurzzeitige MKL, die beim nächsten Zündzyklus automatisch erlischt. Normal. Kein Risiko.",
+
+b_honda:"Honda (dediziert)",
+hon_compat:"ALLE Euro-5+",
+hon_year:"2025 (teils 2024)",
+hon_pn:"SN25HONDA00",
+hon_note:"Stabil, keine Fehler, vollständig transparent.",
+
+b_kawasaki:"Kawasaki (dediziert)",
+kaw_compat:"ALLE Euro-5+",
+kaw_year:"2025 (teils 2024)",
+kaw_pn:"SN25KAVA0000",
+kaw_note:"Dedizierte Version. Stabil, keine Fehler.",
+
+b_bmw:"BMW",
+bmw_compat:"ALLE Euro-5+",
+bmw_year:"2024",
+bmw_pn:"SN25BMWCF00",
+bmw_note:"Stabil, keine Fehler, transparent.",
+
+b_suzuki:"Suzuki",
+suz_compat:"ALLE Euro-5+",
+suz_year:"2025",
+suz_pn:"SN25ALL0000",
+suz_note:"Stabil, keine Fehler.",
+
+b_triumph:"Triumph",
+tri_compat:"ALLE Euro-5+",
+tri_year:"2025 (teils 2024)",
+tri_pn:"SN25ALL0000",
+tri_note:"Stabil, keine Fehler.",
+
+b_harley:"Harley-Davidson",
+hdl_compat:"ALLE Euro-5+ und Euro-5 ab 2021",
+hdl_year:"2021+",
+hdl_pn:"SN25ALL0000",
+hdl_note:"Bei Racing-Abgasanlagen ohne Snap ist die MKL garantiert (Post-Kat-Sensor). Mit Snap: keine Fehler.",
+
+b_motoguzzi:"Moto Guzzi",
+guz_compat:"ALLE Euro-5+",
+guz_year:"2025 (teils 2024)",
+guz_pn:"SN25ALL0000",
+guz_note:"Stabil, keine Fehler.",
+
+b_aprilia:"Aprilia",
+apr_compat:"ALLE Euro-5+",
+apr_year:"2025 (teils 2024)",
+apr_pn:"SN25ALL0000",
+apr_note:"Stabil, keine Fehler.",
+
+b_piaggio:"Piaggio",
+pia_compat:"ALLE Euro-5+",
+pia_year:"2025 (teils 2024)",
+pia_pn:"SN25ALL0000",
+pia_note:"Stabil, keine Fehler.",
+
+b_cfmoto:"CFMoto",
+cfm_compat:"ALLE Euro-5+",
+cfm_year:"2025 (teils 2024)",
+cfm_pn:"SN25BMWCF00",
+cfm_note:"BMW-Diagnosearchitektur. Stabil.",
+
+b_ducati:"Ducati",
+duc_compat:"ALLE Euro-5+",
+duc_year:"2025 (teils 2024)",
+duc_pn:"SN25ALL0000",
+duc_note:"Stabil, keine Fehler.",
+
+b_ktm:"KTM",
+ktm_compat:"ALLE Euro-5+",
+ktm_year:"2025 (teils 2024)",
+ktm_pn:"SN25ALL0000",
+ktm_note:"Stabil, keine Fehler.",
+
+b_re:"Royal Enfield",
+re_compat:"ALLE Euro-5+",
+re_year:"2025",
+re_pn:"SN25ALL0000",
+re_note:"Stabil, keine Fehler.",
+
+b_indian:"Indian",
+ind_compat:"ALLE Euro-5+",
+ind_year:"2025 (teils 2024)",
+ind_pn:"SN25ALL0000",
+ind_note:"Stabil, keine Fehler.",
+
+diag_k:"Diagnose & Installation",
+diag_t:"Alles bleibt aktiv",
+diag_p:"Diagnosefunktionen bleiben aktiv. Snap verhindert nur den Kat-Fehlercode. Andere Fehler werden normal erkannt.",
+pill_keep:"Snap verbunden lassen",
+pill_onlycat:"Nur Kat-DTC",
+diag_note:"Installation: Snap bei Zündung AUS anschließen · verbunden lassen solange Racing-Auspuff montiert ist · Post-Kat-Sonde angeschlossen lassen.",
+
+svt_k:"Snap vs. Tuning",
+svt_t:"Ingenieurslogik statt riskanter Remaps",
+svt_trad_t:"Klassisches Tuning (ECU-Remap)",
+svt_trad_p:"Euro-5+ ECUs sind geschlossene Systeme; Remaps können instabil sein (MKL/Notlauf/Garantie).",
+svt_snap_t:"Snap (Plug’n Ride)",
+svt_snap_p:"Keine Kennfeldänderung – nur Kat-Fehler verhindern bei aktiver Sicherheit & Diagnose. Reversibel.",
+svt_sum:"Fazit: Remap = Risiko. Snap = kompatibel & zuverlässig.",
+
+dist_k:"Vertrieb",
+dist_t:"Exklusiv in Europa",
+dist_p:"Snap wird in Europa exklusiv von Parts Europe vertrieben.",
+
+legal_t:"Hinweis",
+legal_p:"Nur für Rennstrecke (geschlossener Kurs). Nicht für den Straßenverkehr zugelassen."
+},
+
+fr:{
+pe_btn:"Parts Europe",
+hero_title:"SNAP – Plug’n Ride",
+hero_sub:"Échappements racing complets sur motos Euro 5+.<br>Pas de remap ECU. Pas de voyant. Pas de mode dégradé.",
+hero_note:"Snap agit via la prise diagnostic, de façon transparente. Logique OEM intacte. Sécurité & diagnostics actifs.",
+
+ov_k:"Présentation",
+ov_t:"Solution sûre et réversible pour Euro 5+",
+ov_p:"Snap permet de monter un échappement racing complet sur motos Euro 5+ sans modifier l’ECU d’origine. Il empêche l’erreur catalyseur tout en conservant sécurité et diagnostics OEM.",
+pill_plug:"Plug & play",
+pill_noecu:"Pas de remap",
+pill_noerr:"Zéro erreur",
+pill_transp:"Transparent",
+
+does_k:"Fonction",
+does_t:"Le maximum que le moteur peut offrir",
+does_p:"Avec un échappement complet, le moteur dispose d’un potentiel supérieur à la configuration d’origine. Snap permet d’exploiter cette configuration sur les motos Euro 5+ sans forcer l’ECU et sans tuning. L’ECU reste entièrement d’origine, les diagnostics restent actifs et le moteur fonctionne selon la logique prévue par le constructeur, en exprimant le maximum de performances possibles pour cette configuration mécanique spécifique.",
+
+pill_cat:"DTC catalyseur seul",
+pill_obd:"OBD actif",
+pill_reversible:"Réversible",
+
+does_note:"Si le voyant moteur s’allume, la cause n’est pas liée à l’échappement et un diagnostic standard est nécessaire.",
+comp_k:"Compatibilité",
+comp_t:"Euro 5+ avec sonde post-cat",
+comp_p:"Compatible avec motos Euro 5+ équipées d’une sonde lambda post-catalyseur. Voir notes par marque.",
+pill_e5:"Euro 5+",
+pill_postcat:"Sonde post-cat requise",
+comp_list:"Marques : Honda, Kawasaki, BMW, Moto Guzzi, Aprilia, Piaggio, Triumph, Suzuki, CFMoto, Harley-Davidson, Indian, Royal Enfield, KTM, Ducati, Yamaha.",
+
+lbl_compat:"Compatibilité",
+lbl_year:"À partir de",
+lbl_pn:"Réf.",
+
+b_yamaha:"Yamaha",
+yam_compat:"TOUTES Euro 5+",
+yam_year:"2025 (certains 2024)",
+yam_pn:"SN25ALL0000",
+yam_note:"Sur certains modèles, redémarrage requis après défaut; voyant temporaire possible, s’éteint au cycle suivant. Normal. Aucun risque.",
+
+b_honda:"Honda (dédié)",
+hon_compat:"TOUTES Euro 5+",
+hon_year:"2025 (certains 2024)",
+hon_pn:"SN25HONDA00",
+hon_note:"Stable, sans erreurs, transparent.",
+
+b_kawasaki:"Kawasaki (dédié)",
+kaw_compat:"TOUTES Euro 5+",
+kaw_year:"2025 (certains 2024)",
+kaw_pn:"SN25KAVA0000",
+kaw_note:"Version dédiée. Stable, sans erreurs.",
+
+b_bmw:"BMW",
+bmw_compat:"TOUTES Euro 5+",
+bmw_year:"2024",
+bmw_pn:"SN25BMWCF00",
+bmw_note:"Stable, sans erreurs, transparent.",
+
+b_suzuki:"Suzuki",
+suz_compat:"TOUTES Euro 5+",
+suz_year:"2025",
+suz_pn:"SN25ALL0000",
+suz_note:"Stable, sans erreurs.",
+
+b_triumph:"Triumph",
+tri_compat:"TOUTES Euro 5+",
+tri_year:"2025 (certains 2024)",
+tri_pn:"SN25ALL0000",
+tri_note:"Stable, sans erreurs.",
+
+b_harley:"Harley-Davidson",
+hdl_compat:"TOUTES Euro 5+ et Euro 5 dès 2021",
+hdl_year:"2021+",
+hdl_pn:"SN25ALL0000",
+hdl_note:"Sans Snap avec échappement racing : voyant garanti (sonde post-cat). Avec Snap : aucune erreur.",
+
+b_motoguzzi:"Moto Guzzi",
+guz_compat:"TOUTES Euro 5+",
+guz_year:"2025 (certains 2024)",
+guz_pn:"SN25ALL0000",
+guz_note:"Stable, sans erreurs.",
+
+b_aprilia:"Aprilia",
+apr_compat:"TOUTES Euro 5+",
+apr_year:"2025 (certains 2024)",
+apr_pn:"SN25ALL0000",
+apr_note:"Stable, sans erreurs.",
+
+b_piaggio:"Piaggio",
+pia_compat:"TOUTES Euro 5+",
+pia_year:"2025 (certains 2024)",
+pia_pn:"SN25ALL0000",
+pia_note:"Stable, sans erreurs.",
+
+b_cfmoto:"CFMoto",
+cfm_compat:"TOUTES Euro 5+",
+cfm_year:"2025 (certains 2024)",
+cfm_pn:"SN25BMWCF00",
+cfm_note:"Architecture BMW. Stable.",
+
+b_ducati:"Ducati",
+duc_compat:"TOUTES Euro 5+",
+duc_year:"2025 (certains 2024)",
+duc_pn:"SN25ALL0000",
+duc_note:"Stable, sans erreurs.",
+
+b_ktm:"KTM",
+ktm_compat:"TOUTES Euro 5+",
+ktm_year:"2025 (certains 2024)",
+ktm_pn:"SN25ALL0000",
+ktm_note:"Stable, sans erreurs.",
+
+b_re:"Royal Enfield",
+re_compat:"TOUTES Euro 5+",
+re_year:"2025",
+re_pn:"SN25ALL0000",
+re_note:"Stable, sans erreurs.",
+
+b_indian:"Indian",
+ind_compat:"TOUTES Euro 5+",
+ind_year:"2025 (certains 2024)",
+ind_pn:"SN25ALL0000",
+ind_note:"Stable, sans erreurs.",
+
+diag_k:"Diagnostic & Installation",
+diag_t:"Tout reste actif",
+diag_p:"Diagnostics actifs. Snap empêche uniquement le code catalyseur. Les autres défauts sont détectés normalement.",
+pill_keep:"Laisser Snap connecté",
+pill_onlycat:"DTC catalyseur seul",
+diag_note:"Installation : brancher Snap contact coupé · le laisser connecté avec échappement racing complet · laisser la sonde post-cat connectée.",
+
+svt_k:"Snap vs Tuning",
+svt_t:"Logique d’ingénierie vs remaps risqués",
+svt_trad_t:"Tuning traditionnel (remap ECU)",
+svt_trad_p:"Les ECU Euro 5+ sont fermées; les remaps peuvent être instables (voyant/mode dégradé/garantie).",
+svt_snap_t:"Snap (Plug’n Ride)",
+svt_snap_p:"Aucune cartographie modifiée — seulement l’erreur catalyseur, avec sécurité & diagnostics actifs. Réversible.",
+svt_sum:"Résumé : remap = risque. Snap = fiable & compatible.",
+
+dist_k:"Distribution",
+dist_t:"Exclusif en Europe",
+dist_p:"Snap est distribué en exclusivité en Europe par Parts Europe.",
+
+legal_t:"Avertissement",
+legal_p:"Usage uniquement sur circuit fermé. Non homologué route."
+},
+
+
+
 };
 
 function setLang(l){
@@ -593,3 +1104,19 @@ setLang("en");
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
